@@ -1,8 +1,272 @@
 /*
- *== FONTS 
- | 
- */
-// DOSIS/ROCHESTER - https://fonts.google.com/?selection.family=Dosis:300,400,600,700|Rochester&query=do
+Theme Name: Monster23
+Theme URI: http://wordpress.org/
+Description: Feminine & Cute Theme.
+Author: Ariel Reyes
+Version: 1.0
+Tags: pink, white, grey, two-columns, fixed-width, custom-header, custom-background, threaded-comments, sticky-post, translation-ready, microformats, rtl-language-support, editor-style, custom-menu (optional)
+License: GPLv3L
+License URI:
+General comments (optional).
+*/
+
+/*
+ *== FONTS - DOSIS/ROCHESTER -
+ 
 //<link href="https://fonts.googleapis.com/css?family=Dosis:300,400,600,700|Rochester" rel="stylesheet">
+
 //font-family: 'Dosis', sans-serif;
 //font-family: 'Rochester', cursive;
+ */
+
+/*
+ *== COLORS
+  bright & fun for a feminine look
+  */
+$magenta: #DD2B52;
+$violet: #794065;
+$palegreen: #819B7F;
+$softorange: #CE4836;
+$mauve: #5E4546;
+//neutral colors
+$white: #FFF;
+$rose: #D5CECE;
+$grey: #3B3A39;
+
+// MIXINS
+//TODO: Add mixin for border radius stuffs & drop shadow things. :D
+
+//gradient snippet
+@mixin gradient($from, $to) {
+   /* fallback/image non-cover color */
+   background-color: $from;
+   background-position: fixed;
+   /* Firefox 3.6+ */
+   background-image: -moz-linear-gradient($from, $to);
+   background-position: fixed;
+   /* Safari 4+, Chrome 1+ */
+   background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from($from), to($to));
+   background-position: fixed;
+   /* Safari 5.1+, Chrome 10+ */
+   background-image: -webkit-linear-gradient($from, $to);
+   background-position: fixed;
+   /* Opera 11.10+ */
+   background-image: -o-linear-gradient($from, $to);
+   background-position: fixed;
+}
+@mixin box-sizing($box-model) {
+ -webkit-box-sizing: $box-model; // Safari <= 5
+    -moz-box-sizing: $box-model; // Firefox <= 19
+         box-sizing: $box-model;
+}
+/*
+ *==EXTENDS
+ */
+ 
+//clear fix
+.clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+//font stuffs
+.htwo-df {
+  display: block;
+  width: 100%;
+  font-size: 2.5em;
+  color: #360A14;
+  font-family: 'Rochester', cursive;
+  margin: 5% 5% 2% 0;
+  padding: 2%;
+  border: 2px solid $rose;
+  text-align: center;
+}
+.hthree-df {
+  font-variant: small-caps;
+  color: $magenta;
+  font-size: 2em;
+  margin: 0;
+  border-bottom: 2px solid;
+  margin-right: 5%;
+}
+.hfour-df {
+  font-size: 1.25em;
+  font-weight: 400;
+  margin-top: 0;
+}
+// Page Styles
+*,
+*:after,
+*:before {
+  @include box-sizing(border-box);
+}
+// Move Gradient Down to ADD/CREATE vector flowers and shindigs!
+html {
+  @include gradient( $white, $rose);
+}
+.wrapper {
+  background: white;
+  box-shadow: 1px 2px 3px 2px #D3D2D3;
+  max-width: 960px;
+  margin: 20% 5% 5% 5%;
+  color: $mauve;
+  font-family: 'Dosis', sans-serif;
+  padding: 1%;
+  margin: 0 auto;
+}
+.colorScheme {
+  display: table;
+  width: 100%;
+  color: white;
+  line-height: 3em;
+  text-align: center;
+  margin: 5% 0;
+}
+.block {
+  display: table-cell;
+  height: 50px;
+}
+.one {
+  background-color: $magenta;
+}
+.two {
+  background-color: $violet;
+}
+.three {
+  background-color: $palegreen;
+}
+.four {
+  background-color: $softorange;
+}
+.five {
+  background-color: $mauve;
+}
+section {
+  @extend .clearfix;
+}
+.wrapone {
+  width: 70%;
+  float: left;
+}
+.wraptwo {
+  margin-top: 3%;
+  float: left;
+  background: $grey;
+  color: $rose;
+  padding: 2%;
+  width: 30%;
+  box-shadow: 1px 2px 3px 2px #D3D2D3;
+  ul {
+    li {
+      list-style-type: none;
+    }
+    li:first-child {
+      font-weight: bold;
+      font-size: 1.125em;
+    }
+  }
+}
+h1 {
+  text-align: center;
+}
+h2 {
+  @extend .htwo-df;
+}
+h3 {
+  @extend .hthree-df;
+}
+h4 {
+  @extend .hfour-df;
+}
+small {
+  background: $palegreen;
+  border-radius: 2px;
+  padding: 1%;
+  color: ghostwhite;
+}
+.btn {
+  width: 150px;
+  padding: 1%;
+  margin-right: 15%;
+  border: 2px solid $softorange;
+  background-color: transparent;
+  color: $softorange;
+  font-weight: bold;
+  border-radius: 5px;  
+  border-bottom: 0;
+  box-shadow: 0px 5px 0px 0px $softorange;
+}
+.clicky {
+  background-color: $softorange;
+  color: white;
+  border: 2px solid $softorange;
+  box-shadow: 0px 3px 0px 0px #752001;
+  margin-right: 0;
+}
+.hover {
+  border: 2px solid #752001;
+ box-shadow: 0px 5px 0px 0px #752001;
+ background-color: $softorange;
+ color: white;
+}
+input[type="text"], label {
+  display: block;
+}
+label {
+  font-weight: bold;
+  margin: 1em 0 .3em 0;
+}
+input[type="text"] {
+  padding: 1%;
+  border-radius: 5px;
+}
+input[type="text"].greenisgo {
+  border: 3px solid darkgreen;
+  border-style: inset;
+}
+input[type="text"].error {
+  border: 3px solid indianred;
+  border-style: inset;
+}
+figure.featured{
+  position: relative;
+  overflow: hidden;
+}
+figure.featured:hover,
+figure.gallery:hover {
+  box-shadow: 2px 3px 5px 3px #D3D2D3;
+}
+.featured figcaption h3 {
+  position: absolute;
+  top: 20%;
+  left: 5%;
+}
+.featured figcaption h4 {
+  position: absolute;
+  top: 40%;
+  left: 5%;
+}
+.featured p {
+  width: 45%;
+  position: absolute;
+  top: 20%;
+  left: 50%;
+}
+figure.gallery {
+  width: 33%;
+  border: 2px solid $violet;
+  border-radius: 3px;
+  padding: 3%;
+}
+.gallery img {
+  width: 100%;
+}
+.gallery figcaption {
+  padding: 2%;
+}
+.gallery h4 {
+  text-align: center;
+  margin: 2% 0;
+}
