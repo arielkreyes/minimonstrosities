@@ -18,19 +18,30 @@ General comments (optional).
 //font-family: 'Dosis', sans-serif;
 //font-family: 'Rochester', cursive;
  */
+ /*
+  *== MAPS
+  */
+$colors: (
+  primary: #5E4546,
+  secondary: #DD2B52,
+  accent: #CE4836,
+  backbone: #3B3A39
+  // backbone is the primary for features off the content area of the page (ie header/footer)
+);
 
 /*
  *== COLORS
   bright & fun for a feminine look
   */
-$magenta: #DD2B52;
+  
+//$magenta: #DD2B52;
 $violet: #794065;
 $palegreen: #819B7F;
-$softorange: #CE4836;
-$mauve: #5E4546;
+//$softorange: #CE4836;
+// $mauve: #5E4546;
 //neutral colors
 $white: #FFF;
-$rose: #D5CECE;
+$rose: #C9A3A3;
 $grey: #3B3A39;
 
 // MIXINS
@@ -54,6 +65,7 @@ $grey: #3B3A39;
    background-image: -o-linear-gradient($from, $to);
    background-position: fixed;
 }
+//box-sizing: border-box snippet ^_^
 @mixin box-sizing($box-model) {
  -webkit-box-sizing: $box-model; // Safari <= 5
     -moz-box-sizing: $box-model; // Firefox <= 19
@@ -85,7 +97,7 @@ $grey: #3B3A39;
 }
 .hthree-df {
   font-variant: small-caps;
-  color: $magenta;
+  color: map-get($colors, secondary);
   font-size: 2em;
   margin: 0;
   border-bottom: 2px solid;
@@ -104,14 +116,23 @@ $grey: #3B3A39;
 }
 // Move Gradient Down to ADD/CREATE vector flowers and shindigs!
 html {
+  background: url(images/daisy_bg.png)no-repeat;
+  background-position: bottom;
+  background-size: contain;
+  background-attachment: fixed;
   @include gradient( $white, $rose);
+}
+a:-webkit-any-link {
+  display: block;
+  // text-align: center;
+  // margin: 0 auto;
 }
 .wrapper {
   background: white;
   box-shadow: 1px 2px 3px 2px #D3D2D3;
   max-width: 960px;
   margin: 20% 5% 5% 5%;
-  color: $mauve;
+  color: map-get($colors, primary);
   font-family: 'Dosis', sans-serif;
   padding: 1%;
   margin: 0 auto;
@@ -129,7 +150,7 @@ html {
   height: 50px;
 }
 .one {
-  background-color: $magenta;
+  background-color: map-get($colors, secondary);
 }
 .two {
   background-color: $violet;
@@ -138,10 +159,10 @@ html {
   background-color: $palegreen;
 }
 .four {
-  background-color: $softorange;
+  background-color: map-get($colors, accent);
 }
 .five {
-  background-color: $mauve;
+  background-color: map-get($colors, primary);
 }
 section {
   @extend .clearfix;
@@ -190,25 +211,25 @@ small {
   width: 150px;
   padding: 1%;
   margin-right: 15%;
-  border: 2px solid $softorange;
+  border: 2px solid map-get($colors, accent);
   background-color: transparent;
-  color: $softorange;
+  color: map-get($colors, accent);
   font-weight: bold;
   border-radius: 5px;  
   border-bottom: 0;
-  box-shadow: 0px 5px 0px 0px $softorange;
+  box-shadow: 0px 5px 0px 0px map-get($colors, accent);
 }
 .clicky {
-  background-color: $softorange;
+  background-color: map-get($colors, accent);
   color: white;
-  border: 2px solid $softorange;
+  border: 2px solid map-get($colors, accent);
   box-shadow: 0px 3px 0px 0px #752001;
   margin-right: 0;
 }
 .hover {
   border: 2px solid #752001;
  box-shadow: 0px 5px 0px 0px #752001;
- background-color: $softorange;
+ background-color: map-get($colors, accent);
  color: white;
 }
 input[type="text"], label {

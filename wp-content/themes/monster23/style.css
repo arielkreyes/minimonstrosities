@@ -18,6 +18,9 @@ General comments (optional).
 //font-family: 'Rochester', cursive;
  */
 /*
+ *== MAPS
+ */
+/*
  *== COLORS
   bright & fun for a feminine look
   */
@@ -37,7 +40,7 @@ General comments (optional).
   font-family: 'Rochester', cursive;
   margin: 5% 5% 2% 0;
   padding: 2%;
-  border: 2px solid #D5CECE;
+  border: 2px solid #C9A3A3;
   text-align: center; }
 
 .hthree-df, h3 {
@@ -61,21 +64,28 @@ General comments (optional).
   box-sizing: border-box; }
 
 html {
+  background: url(images/daisy_bg.png) no-repeat;
+  background-position: bottom;
+  background-size: contain;
+  background-attachment: fixed;
   /* fallback/image non-cover color */
   background-color: #FFF;
   background-position: fixed;
   /* Firefox 3.6+ */
-  background-image: -moz-linear-gradient(#FFF, #D5CECE);
+  background-image: -moz-linear-gradient(#FFF, #C9A3A3);
   background-position: fixed;
   /* Safari 4+, Chrome 1+ */
-  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#FFF), to(#D5CECE));
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#FFF), to(#C9A3A3));
   background-position: fixed;
   /* Safari 5.1+, Chrome 10+ */
-  background-image: -webkit-linear-gradient(#FFF, #D5CECE);
+  background-image: -webkit-linear-gradient(#FFF, #C9A3A3);
   background-position: fixed;
   /* Opera 11.10+ */
-  background-image: -o-linear-gradient(#FFF, #D5CECE);
+  background-image: -o-linear-gradient(#FFF, #C9A3A3);
   background-position: fixed; }
+
+a:-webkit-any-link {
+  display: block; }
 
 .wrapper {
   background: white;
@@ -122,7 +132,7 @@ html {
   margin-top: 3%;
   float: left;
   background: #3B3A39;
-  color: #D5CECE;
+  color: #C9A3A3;
   padding: 2%;
   width: 30%;
   box-shadow: 1px 2px 3px 2px #D3D2D3; }
