@@ -4,8 +4,8 @@
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="<?php echo get_stylesheet_uri(); ?>" />
-    <link href="https://fonts.googleapis.com/css?family=Dosis:300,400,600,700|Rochester" rel="stylesheet" />
     <?php wp_head(); //this is a hook. required for plugins admin bar to work ?>
+    <link href="https://fonts.googleapis.com/css?family=Dosis:300,400,600,700|Rochester" rel="stylesheet" />
   </head>
   <body <?php body_class(); ?>>
       <header role="banner" id="header" style="background-image:url(<?php header_image(); ?>)">

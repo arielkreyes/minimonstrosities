@@ -1,11 +1,12 @@
 <article id="sidebar">
-  <!-- WIDGET AREA! -->
-  <section>
-    <label for="search">Search</label>
-    <input type="text" name="search" placeholder="Search" />
+  <!-- WIDGET AREA!
+if there are widgets show them, otherwisde do fallback content and don't forget to register_sidebar() in the functions.php -->
+  <section id="search" class="widget">
+  
   </section>
-  <section>
-    <h5>Calendar</h5>
+  <section id="calendar" class="widget">
+    <h3 class="widgettitle">Calendar</h3>
+    <?php get_calendar(); ?>
     <!-- Calendar Stuffs -->
   </section>
   <section>

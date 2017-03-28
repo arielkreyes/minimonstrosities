@@ -1,11 +1,26 @@
 <?php
 //turn on sleeping features
 
+//adding support for a featured image 
+add_theme_support('post-thumbnails');
+
 //adding a logo to the theme. 'custom_logo()'
 add_theme_support( 'custom-logo', array(
   'width'   =>  319,
   'height'  =>  140,
 ));
+
+//adding a customizable header image *don't forget to show it in the header.php file :)
+add_theme_support('custom-header', array(
+  'width' =>  960,
+  'height'  =>  700,
+  'flex-width'  =>  true,
+  'flex-height' => true,
+));
+
+//adding a customizable Background 
+add_theme_support('custom-background');
+
 //improving RSS Fed Links. *required since a blog is utilized
 add_theme_support('automatic-feed-links');
 
@@ -22,7 +37,25 @@ add_theme_support('html5', array('search-form', 'comment-list', 'comment-form', 
 function monster23_menus(){
   register_nav_menus( array(
     'main_menu' => 'Main Navigation',
-    'utility_menu' => 'User Menu'
+    'utility_menu' => 'Utility Menu',
   ));
 }
 add_action( 'init', 'monster23_menus');
+
+/*
+ *==REGISTER WIDGET AREAS(Dynamic Sidebars)
+ * Call dynamic_sidebar() in ze templates to display them :)
+ */
+ function aka_widget_areas(){
+   register_sidebar( array(
+     'name' => 'Blog Sidebar',
+     'id' => 'blog-sidebar',
+     'description'  =>  'Appears next to blog and archive pages',
+     'before_widget'  =>  '<section id="%S1s" class="widget %2$s"',
+     'after_widge'  =>  '</section',
+     'before_title' =>  '<h3 class="widgettitle">',
+     'after_title'  =>  '</h3>',
+     'after_widget' =>  '</section',
+   ));
+ }//end of function aka_widget_areas
+ add_action('widgets_init', 'aka_widget_areas');

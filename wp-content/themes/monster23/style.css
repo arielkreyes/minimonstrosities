@@ -27,7 +27,7 @@ General comments (optional).
 /*
  *==EXTENDS
  */
-.clearfix:after, section:after {
+.clearfix:after, section:after, #content:after, #sidebar:after, footer:after {
   content: "";
   display: table;
   clear: both; }
@@ -40,7 +40,7 @@ General comments (optional).
   font-family: 'Rochester', cursive;
   margin: 5% 5% 2% 0;
   padding: 2%;
-  border: 2px solid #C9A3A3;
+  border: 2px solid #c9a3a3;
   text-align: center; }
 
 .hthree-df, h3 {
@@ -72,30 +72,42 @@ html {
   background-color: #FFF;
   background-position: fixed;
   /* Firefox 3.6+ */
-  background-image: -moz-linear-gradient(#FFF, #C9A3A3);
+  background-image: -moz-linear-gradient(#FFF, #c9a3a3);
   background-position: fixed;
   /* Safari 4+, Chrome 1+ */
-  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#FFF), to(#C9A3A3));
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#FFF), to(#c9a3a3));
   background-position: fixed;
   /* Safari 5.1+, Chrome 10+ */
-  background-image: -webkit-linear-gradient(#FFF, #C9A3A3);
+  background-image: -webkit-linear-gradient(#FFF, #c9a3a3);
   background-position: fixed;
   /* Opera 11.10+ */
-  background-image: -o-linear-gradient(#FFF, #C9A3A3);
+  background-image: -o-linear-gradient(#FFF, #c9a3a3);
   background-position: fixed; }
 
-a:-webkit-any-link {
-  display: block; }
+.custom-logo-link {
+  margin: 0 auto; }
 
 .wrapper {
   background: white;
-  box-shadow: 1px 2px 3px 2px #D3D2D3;
+  box-shadow: 1px 2px 3px 2px #665353;
   max-width: 960px;
   margin: 20% 5% 5% 5%;
   color: #5E4546;
   font-family: 'Dosis', sans-serif;
   padding: 1%;
   margin: 0 auto; }
+
+/*
+ *==NAV STYLES
+ */
+nav {
+  max-width: 100%;
+  margin: 0 auto; }
+  nav ul.menu li {
+    display: inline-block; }
+  nav ul.menu a {
+    text-decoration: none;
+    color: #3B3A39; }
 
 .colorScheme {
   display: table;
@@ -124,23 +136,18 @@ a:-webkit-any-link {
 .five {
   background-color: #5E4546; }
 
-.wrapone {
+#content {
   width: 70%;
   float: left; }
 
-.wraptwo {
+#sidebar {
   margin-top: 3%;
   float: left;
   background: #3B3A39;
-  color: #C9A3A3;
+  color: #c9a3a3;
   padding: 2%;
   width: 30%;
   box-shadow: 1px 2px 3px 2px #D3D2D3; }
-  .wraptwo ul li {
-    list-style-type: none; }
-  .wraptwo ul li:first-child {
-    font-weight: bold;
-    font-size: 1.125em; }
 
 h1 {
   text-align: center; }
@@ -219,20 +226,8 @@ figure.gallery:hover {
   top: 20%;
   left: 50%; }
 
-figure.gallery {
-  width: 33%;
-  border: 2px solid #794065;
-  border-radius: 3px;
-  padding: 3%; }
-
-.gallery img {
-  width: 100%; }
-
-.gallery figcaption {
-  padding: 2%; }
-
-.gallery h4 {
-  text-align: center;
-  margin: 2% 0; }
+/*
+ *==FOOTER STYLES
+ */
 
 /*# sourceMappingURL=style.css.map */

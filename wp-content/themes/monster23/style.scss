@@ -41,7 +41,7 @@ $palegreen: #819B7F;
 // $mauve: #5E4546;
 //neutral colors
 $white: #FFF;
-$rose: #C9A3A3;
+$rose: #c9a3a3;
 $grey: #3B3A39;
 
 // MIXINS
@@ -122,14 +122,17 @@ html {
   background-attachment: fixed;
   @include gradient( $white, $rose);
 }
-a:-webkit-any-link {
-  display: block;
-  // text-align: center;
-  // margin: 0 auto;
+// a:-webkit-any-link {
+//   display: block;
+//   // text-align: center;
+//   // margin: 0 auto;
+// }
+.custom-logo-link {
+  margin: 0 auto;
 }
 .wrapper {
   background: white;
-  box-shadow: 1px 2px 3px 2px #D3D2D3;
+  box-shadow: 1px 2px 3px 2px #665353;
   max-width: 960px;
   margin: 20% 5% 5% 5%;
   color: map-get($colors, primary);
@@ -137,6 +140,23 @@ a:-webkit-any-link {
   padding: 1%;
   margin: 0 auto;
 }
+/*
+ *==NAV STYLES
+ */ 
+ nav {
+   max-width: 100%;
+   margin: 0 auto;
+  ul.menu  {
+     li {
+       display: inline-block;
+       
+     }
+     a {
+       text-decoration: none;
+       color: map-get($colors, backbone);
+     }
+   } 
+ }
 .colorScheme {
   display: table;
   width: 100%;
@@ -167,11 +187,13 @@ a:-webkit-any-link {
 section {
   @extend .clearfix;
 }
-.wrapone {
+#content {
+  @extend .clearfix;
   width: 70%;
   float: left;
 }
-.wraptwo {
+#sidebar {
+  @extend .clearfix;
   margin-top: 3%;
   float: left;
   background: $grey;
@@ -179,15 +201,6 @@ section {
   padding: 2%;
   width: 30%;
   box-shadow: 1px 2px 3px 2px #D3D2D3;
-  ul {
-    li {
-      list-style-type: none;
-    }
-    li:first-child {
-      font-weight: bold;
-      font-size: 1.125em;
-    }
-  }
 }
 h1 {
   text-align: center;
@@ -275,19 +288,26 @@ figure.gallery:hover {
   top: 20%;
   left: 50%;
 }
-figure.gallery {
-  width: 33%;
-  border: 2px solid $violet;
-  border-radius: 3px;
-  padding: 3%;
-}
-.gallery img {
-  width: 100%;
-}
-.gallery figcaption {
-  padding: 2%;
-}
-.gallery h4 {
-  text-align: center;
-  margin: 2% 0;
-}
+// figure.gallery {
+//   width: 33%;
+//   border: 2px solid $violet;
+//   border-radius: 3px;
+//   padding: 3%;
+// }
+// .gallery img {
+//   width: 100%;
+// }
+// .gallery figcaption {
+//   padding: 2%;
+// }
+// .gallery h4 {
+//   text-align: center;
+//   margin: 2% 0;
+// }
+
+/*
+ *==FOOTER STYLES
+ */
+ footer {
+   @extend .clearfix;
+ }
