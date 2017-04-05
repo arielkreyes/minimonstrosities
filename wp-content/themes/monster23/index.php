@@ -7,10 +7,8 @@
     the_post(); 
   ?>
     
-      <figure <?php post_class(); ?>>
-        <!-- change figures to aritcles  -->
+      <article <?php post_class(); ?>>
         <!-- <img src="" /> -->
-        <figcaption>
           <h3 class="entry-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
           <div class="entry-content">
             <?php the_content(); ?>
@@ -20,9 +18,8 @@
           <span class="date"><?php the_date(); ?></span>
           <span class="num-comments"><?php comments_number(); ?> </span>
         </div>
+      </article>
         <!-- end .postmeta -->
-        </figcaption>
-      </figure>
       <!-- End of ze Post -->
 
     <!-- end of main#content ^_^  -->
