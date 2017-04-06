@@ -12,7 +12,7 @@ General comments (optional).
 
 /*
  *== FONTS - DOSIS/ROCHESTER -
- 
+
 //<link href="https://fonts.googleapis.com/css?family=Dosis:300,400,600,700|Rochester" rel="stylesheet">
  */
 $font-body: 'Dosis', sans-serif;
@@ -33,7 +33,7 @@ $colors: (
  *== COLORS
   bright & fun for a feminine look
   */
-  
+
 //$magenta: #DD2B52;
 $violet: #794065;
 $palegreen: #819B7F;
@@ -91,13 +91,13 @@ $grey: #3B3A39;
 }
 /*
  *==EXTENDS
- */ 
+ */
 //buttons
 .btn {
   padding: 1%;
   border: 2px solid map-get($colors, accent);
-  
-} 
+
+}
 
 //font stuffs
 .htwo-df {
@@ -124,8 +124,12 @@ $grey: #3B3A39;
   font-weight: 400;
   margin-top: 0;
 }
-
-
+/*
+ *==LOGIN/LOGOUT FORMS
+ */
+.login {
+  background-image: url(images/login-bg.jpg)no-repeat;
+}
 
 // Page Styles
 *,
@@ -154,7 +158,10 @@ html {
 }
 /*
  *==NAV STYLES
- */ 
+ */
+ a {
+   text-decoration: none;
+ }
  nav {
    display: flex;
    justify-content: space-around;
@@ -173,7 +180,7 @@ html {
        font-family: $font-body;
        font-size: 1.3em;
        list-style-type: none;
-       margin: 0 50px;  
+       margin: 0 50px;
      }
      li:last-of-type {
        margin-right: 0;
@@ -183,7 +190,7 @@ html {
        color: map-get($colors, backbone);
        padding: 30% 0;
      }
-   } 
+   }
  }
  #menu-global-menu li.menu-item a:hover {
    color: map-get($colors, secondary );
@@ -215,7 +222,7 @@ section {
   @include border-radius(2px);
   font-weight: bold;
   // font-style: italic;
-  
+
 }
 /*
  *==WIDGET AREA STYLES
@@ -229,7 +236,7 @@ section {
   padding: 2%;
   width: 30%;
   box-shadow: 1px 2px 3px 2px #999;
-} 
+}
 .widget {
   max-width: 100%;
   margin: 3%;
@@ -279,18 +286,17 @@ h3 {
 h4 {
   @extend .hfour-df;
 }
-
-// .btn {
-//   width: 150px;
-//   padding: 1%;
-//   margin-right: 15%;
-//   border: 2px solid map-get($colors, accent);
-//   background-color: transparent;
-//   color: map-get($colors, accent);
-//   font-weight: bold;
-//   border-bottom: 0;
-//   box-shadow: 0px 5px 0px 0px map-get($colors, accent);
-// }
+.btn {
+  width: 150px;
+  padding: 1%;
+  margin-right: 15%;
+  border: 2px solid map-get($colors, accent);
+  background-color: transparent;
+  color: map-get($colors, accent);
+  font-weight: bold;
+  border-bottom: 0;
+  box-shadow: 0px 5px 0px 0px map-get($colors, accent);
+}
 // .clicky {
 //   background-color: map-get($colors, accent);
 //   color: white;

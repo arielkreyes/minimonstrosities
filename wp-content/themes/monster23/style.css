@@ -11,7 +11,7 @@ General comments (optional).
 */
 /*
  *== FONTS - DOSIS/ROCHESTER -
- 
+
 //<link href="https://fonts.googleapis.com/css?family=Dosis:300,400,600,700|Rochester" rel="stylesheet">
  */
 /*
@@ -51,6 +51,12 @@ General comments (optional).
   font-size: 1.25em;
   font-weight: 400;
   margin-top: 0; }
+
+/*
+ *==LOGIN/LOGOUT FORMS
+ */
+.login {
+  background-image: url(images/login-bg.jpg) no-repeat; }
 
 *,
 *:after,
@@ -98,6 +104,9 @@ html {
 /*
  *==NAV STYLES
  */
+a {
+  text-decoration: none; }
+
 nav {
   display: flex;
   justify-content: space-around;
@@ -205,6 +214,17 @@ table#wp-calendar {
 
 h1 {
   text-align: center; }
+
+.btn {
+  width: 150px;
+  padding: 1%;
+  margin-right: 15%;
+  border: 2px solid #CE4836;
+  background-color: transparent;
+  color: #CE4836;
+  font-weight: bold;
+  border-bottom: 0;
+  box-shadow: 0px 5px 0px 0px #CE4836; }
 
 input[type="text"] {
   padding: 1%;

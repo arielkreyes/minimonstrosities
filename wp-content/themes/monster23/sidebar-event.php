@@ -4,15 +4,11 @@ if there are widgets show them, otherwisde do fallback content and don't forget 
   <section id="search" class="widget">
     <?php get_search_form(); ?>
   </section>
-  <!-- Upcoming Events -->
-  <section id="upcoming-events" class="widget">
-    <h3 class="widgettitle">upcoming events</h3>
-    wp_get_
-    
+
   </section>
   <section id="recentposts" class="widget">
     <h3 class="widgettitle">recent stories</h3>
-    <?php 
+    <?php
     //show the most recent published posts
     wp_get_recent_posts( array(
       'numberposts' => 3,
@@ -32,7 +28,7 @@ if there are widgets show them, otherwisde do fallback content and don't forget 
   <section id="categories" class="widget">
     <h3 class="widgettitle">categories</h3>
     <ul>
-      <?php 
+      <?php
       //show 5 common categories in a flat list
       wp_list_categories( array(
         'depth' => -1,
