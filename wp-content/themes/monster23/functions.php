@@ -21,6 +21,9 @@ add_theme_support('custom-header', array(
 //adding a customizable Background 
 add_theme_support('custom-background');
 
+//creates a post format for the gallery and its images
+add_theme_support('post-formats', array('image', 'video'));
+
 //improving RSS Fed Links. *required since a blog is utilized
 add_theme_support('automatic-feed-links');
 
@@ -46,7 +49,7 @@ add_action( 'init', 'monster23_menus');
  *==REGISTER WIDGET AREAS(Dynamic Sidebars)
  * Call dynamic_sidebar() in ze templates to display them :)
  */
- function aka_widget_areas(){
+ function monster23_widget_areas(){
    register_sidebar( array(
      'name' => 'Blog Sidebar',
      'id' => 'blog-sidebar',
@@ -55,7 +58,17 @@ add_action( 'init', 'monster23_menus');
      'after_widge'  =>  '</section',
      'before_title' =>  '<h3 class="widgettitle">',
      'after_title'  =>  '</h3>',
-     'after_widget' =>  '</section',
+     'after_widget' =>  '</section>',
+   ));
+   register_sidebar( array(
+     'name' => 'Event Sidebar',
+     'id' => 'event-sidebar',
+     'description'  =>  'Appears next to events and important dates pages',
+     'before_widget'  =>  '<section id="%S1s" class="widget %2$s"',
+     'after_widge'  =>  '</section',
+     'before_title' =>  '<h3 class="widgettitle">',
+     'after_title'  =>  '</h3>',
+     'after_widget' =>  '</section>',
    ));
  }//end of function aka_widget_areas
- add_action('widgets_init', 'aka_widget_areas');
+ add_action('widgets_init', 'monster23_widget_areas');

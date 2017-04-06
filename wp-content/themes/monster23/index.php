@@ -1,6 +1,6 @@
 <?php get_header(); //includes the header.php - wp function ?>
 <main id="content">  
-  <h2>Blog</h2>
+  <h2><?php wp_title(''); ?></h2>
   <!--Insert "the Loop" Here!  -->
   <?php if( have_posts() ){
   while( have_posts() ){
@@ -8,7 +8,7 @@
   ?>
     
       <article <?php post_class(); ?>>
-        <!-- <img src="" /> -->
+          <?php the_post_thumbnail('large'); ?>
           <h3 class="entry-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
           <div class="entry-content">
             <?php the_content(); ?>
