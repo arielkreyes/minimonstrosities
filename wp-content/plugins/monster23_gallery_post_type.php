@@ -22,7 +22,7 @@
       'menu_icon' =>  'dashicons-format-gallery',
       'menu_position' =>  10,
       'rewrite' =>  array('slug' => 'Gallery'),
-      'supports'  =>  array( 'title', 'custom-fields', 'revisions', 'comments'),
+      'supports'  =>  array( 'title', 'editor', 'custom-fields', 'revisions', 'comments'),
    ));
    //attach 'uploaded date' taxonomy to gallery Images
    register_taxonomy('datetaken', 'gallery', array(

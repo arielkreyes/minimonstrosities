@@ -47,29 +47,6 @@ $grey: #3B3A39;
 // MIXINS
 //TODO: Add mixin for border radius stuffs & drop shadow things. :D
 
-//gradient snippet
-@mixin gradient($from, $to) {
-   /* fallback/image non-cover color */
-   background-color: $from;
-   background-position: fixed;
-   background-size: cover;
-   /* Firefox 3.6+ */
-   background-image: -moz-linear-gradient($from, $to);
-   background-position: fixed;
-   background-size: cover;
-   /* Safari 4+, Chrome 1+ */
-   background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from($from), to($to));
-   background-position: fixed;
-   background-size: cover;
-   /* Safari 5.1+, Chrome 10+ */
-   background-image: -webkit-linear-gradient($from, $to);
-   background-position: fixed;
-   background-size: cover;
-   /* Opera 11.10+ */
-   background-image: -o-linear-gradient($from, $to);
-   background-position: fixed;
-   background-size: cover;
-}
 //box-sizing: border-box snippet ^_^
 @mixin box-sizing($box-model) {
  -webkit-box-sizing: $box-model; // Safari <= 5
@@ -129,12 +106,6 @@ $grey: #3B3A39;
   font-weight: 400;
   margin-top: 0;
 }
-/*
- *==LOGIN/LOGOUT FORMS
- */
-.login {
-  background-image: url(images/login-bg.jpg)no-repeat;
-}
 
 // Page Styles
 *,
@@ -143,9 +114,9 @@ $grey: #3B3A39;
   @include box-sizing(border-box);
 }
 // Move Gradient Down to ADD/CREATE vector flowers and shindigs!
-html {
-  background: url(images/daisy_bg.png)no-repeat;
-  @include gradient( $white, $rose);
+body {
+  // background: -webkit-radial-gradient(center, ellipse cover, #4A3247 0%, #180E15 100%);
+  background: radial-gradient(#4A3247, #180E15);
 }
 .custom-logo-link {
   margin: 0 auto;
@@ -200,9 +171,6 @@ html {
  #menu-global-menu li.menu-item a:hover {
    color: map-get($colors, secondary );
  }
- // #menu-utility-menu {
- //   border: 2px ;
- // }
  #menu-utility-menu li.menu-item {
    font-size: 1em;
    margin: 0 10px;
@@ -219,15 +187,14 @@ html {
    width: 100%;
    height: 200px;
    overflow: hidden;
+   margin-bottom: 5%;
    h3 {
      position: absolute;
      top: 5%;
      left: 5%;
+     background-color: $rose;
    }
- }
-section {
-  // @include clearfix();
-}
+ }   
 #content {
   @include clearfix();
   width: 70%;
@@ -238,8 +205,6 @@ section {
   padding: 1%;
   @include border-radius(2px);
   font-weight: bold;
-  // font-style: italic;
-
 }
 /*
  *==WIDGET AREA STYLES
@@ -254,7 +219,6 @@ section {
   color: $rose;
   padding: 2%;
   width: 25%;
-  // box-shadow: 1px 2px 3px 2px dimgrey;
 }
 .widget {
   max-width: 100%;
@@ -351,17 +315,13 @@ input[type="text"] {
 /*
  *==GALLERY STYLES
  */
- .format-image {
+ .gallery {
    @include clearfix();
+   width: 30%;
+   float: left;
+   margin: 2%;
    position: relative;
-   width: 30%;  
-   img {
-    max-width: 100%;
-  }
- }  
- div.postmeta {
-     padding: 2%;
-}//end of div.postmeta
+ }
 
 /*
  *==FOOTER STYLES

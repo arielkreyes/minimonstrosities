@@ -1,0 +1,17 @@
+body {
+  height: 100%;
+  background: -webkit-radial-gradient(center, ellipse cover, #4A3247 0%, #180E15 100%);
+  background: radial-gradient(#4A3247, #180E15);
+}
+
+/*CHANGING THE WP LOGO :D*/
+.login h1 a {
+  background-image: url(../images/crowns.png), url(../images/mm_logo_white.png);
+  background-position: top, bottom;
+  width: 327px;
+  height: 180px;
+  background-size: 327px;
+}
+form#loginform label {
+  color: #4A3247;
+}

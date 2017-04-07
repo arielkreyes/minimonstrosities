@@ -11,7 +11,7 @@
           <?php the_post_thumbnail('large'); ?>
           <h3 class="entry-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
           <div class="entry-content">
-            <?php the_content(); ?>
+            <?php the_excerpt(); ?>
         </div>
         <div class="postmeta">
           <span class="author">By: <?php the_author(); ?> </span>
