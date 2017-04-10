@@ -25,7 +25,7 @@ $colors: (
   primary: #5E4546,
   primary-dark: ghostwhite,
   secondary: #DD2B52,
-  accent: #CE4836,
+  accent: #FF476A,
   backbone: #3B3A39
   // backbone is the primary for features off the content area of the page (ie header/footer)
 );
@@ -76,12 +76,46 @@ $grey: #3B3A39;
  *==EXTENDS
  */
 //buttons
+// BUTTON STYLES
 .btn {
-  padding: 1%;
-  border: 2px solid map-get($colors, accent);
-
+  display: block;
+  width: 100px;
+  text-align: center;
+  padding: 2%;
+  margin: 5% 0;
+  border: 3px solid map-get($colors, accent);
+  border-bottom: 5px solid map-get($colors, accent);
+  background-color: transparent;
+  color: map-get($colors, accent);
+  font-weight: bold;
+  @include border-radius(5px);
 }
-
+  .btn:hover {
+    border: 3px solid map-get($colors, accent);
+    border-bottom: 5px solid map-get($colors, accent);
+    @include border-radius(5px);
+    background-color: map-get($colors, accent);
+    color: white;
+}
+// label {
+//   font-weight: bold;
+//   margin: 1em 0 .3em 0;
+// }
+input[type="text"],
+input[type="search"],
+input[type="submit"] {
+  padding: 1%;
+  @include border-radius(5px);
+  background-color: transparent;
+}
+// input[type="text"].greenisgo {
+//   border: 3px solid darkgreen;
+//   border-style: inset;
+// }
+// input[type="text"].error {
+//   border: 3px solid indianred;
+//   border-style: inset;
+// }
 //font stuffs
 .htwo-df {
   display: block;
@@ -126,14 +160,17 @@ body {
 }
 .wrapper {
   @include clearfix();
+  position: relative;
   background: white;
-  // box-shadow: inset 1px 2px 3px 2px #999;
   max-width: 960px;
   margin: 20% 5% 5% 5%;
   color: map-get($colors, primary);
   font-family: $font-body;
   padding: 1%;
   margin: 0 auto;
+}
+article {
+  @include clearfix();
 }
 /*
  *==NAV STYLES
@@ -171,6 +208,33 @@ body {
      }
    }
  }
+ div.nav-links {
+   a.next.page-numbers, a.prev.page-numbers {
+     @extend .btn;
+     display: inline-block;
+   }
+   a.page-numbers {
+     font-weight: bold;
+     font-size: 1.25em;
+     color: black;
+   }
+   span.current {
+     font-size: 1.45em;
+     font-weight: bold;
+     border-bottom: 5px solid map-get($colors, accent);
+     padding: 0 3%;
+   }
+ }
+ div.pagination {
+   width: 100%;
+   display: flex;
+   justify-content: space-around;
+   a {
+    @extend .btn;
+    width: 175px;
+    padding: 1%;
+   }
+ }
  #menu-global-menu li.menu-item a:hover {
    color: map-get($colors, secondary );
  }
@@ -184,24 +248,15 @@ body {
      color: map-get($colors, backbone);
    }
  }
- //*==POST STYLES (blog)
- .post.format-standard {
-   position: relative;
-   width: 100%;
-   height: 200px;
-   overflow: hidden;
-   margin-bottom: 5%;
-   h3 {
-     position: absolute;
-     top: 5%;
-     left: 5%;
-     background-color: $rose;
-   }
- }
-#content {
+ #content {
   @include clearfix();
-  width: 70%;
+  width: 660px / 960px * 100%;
   float: left;
+  h2 {
+    background: url(images/pagetitle_divider.png)no-repeat;
+    background-position: bottom left;
+    height: 120px;
+  }
   img {
     max-width: 100%;
     max-height: 100%;
@@ -213,6 +268,24 @@ body {
   @include border-radius(2px);
   font-weight: bold;
 }
+ //*==POST STYLES (blog)
+ .format-standard.status-publish.hentry {
+   background: url(images/post_divider.png)no-repeat;
+   background-position: bottom;
+   position: relative;
+   width: 100%;
+   height: 300px;
+   overflow: hidden;
+   margin-bottom: 5%;
+   border: 3px solid red;
+   h3 {
+     position: absolute;
+     top: 5%;
+     left: 5%;
+     background-color: $rose;
+   }
+ }
+
 /*
  *==WIDGET AREA STYLES
  */
@@ -220,12 +293,12 @@ body {
   @include clearfix();
   margin-top: 3%;
   position: absolute;
-  top: 435px;
-  left: 830px;
+  top: 35px;
+  left: 730px;
   background: $grey;
   color: $rose;
   padding: 2%;
-  width: 25%;
+  width: 300px / 960px * 100%;
 }
 .widget {
   max-width: 100%;
@@ -270,56 +343,16 @@ h1 {
 h2 {
   @extend .htwo-df;
 }
+#content .screen-reader-text {
+  display: none;
+}
 h3 {
   @extend .hthree-df;
 }
 h4 {
   @extend .hfour-df;
 }
-.btn {
-  width: 150px;
-  padding: 1%;
-  margin-right: 15%;
-  border: 2px solid map-get($colors, accent);
-  background-color: transparent;
-  color: map-get($colors, accent);
-  font-weight: bold;
-  border-bottom: 0;
-  box-shadow: 0px 5px 0px 0px map-get($colors, accent);
-}
-// .clicky {
-//   background-color: map-get($colors, accent);
-//   color: white;
-//   border: 2px solid map-get($colors, accent);
-//   box-shadow: 0px 3px 0px 0px #752001;
-//   margin-right: 0;
-// }
-// .hover {
-//   border: 2px solid #752001;
-//  box-shadow: 0px 5px 0px 0px #752001;
-//  background-color: map-get($colors, accent);
-//  color: white;
-// }
-// input[type="text"], label {
-//   display: block;
-// }
-// label {
-//   font-weight: bold;
-//   margin: 1em 0 .3em 0;
-// }
-input[type="text"],
-input[type="search"] {
-  padding: 1%;
-  @include border-radius(2px);
-}
-// input[type="text"].greenisgo {
-//   border: 3px solid darkgreen;
-//   border-style: inset;
-// }
-// input[type="text"].error {
-//   border: 3px solid indianred;
-//   border-style: inset;
-// }
+
 /*
  *==GALLERY STYLES
  */
@@ -333,7 +366,58 @@ input[type="search"] {
      width: 100%;
    }
  }
-
+ /*
+  *==COMMENT FORM STYLES
+  */
+section.comments {
+  @include clearfix();
+  position:relative;
+  background: url(images/comments_divider.png)no-repeat;
+  background-position: top left;
+  padding-top: 65px;
+  
+  h4 {
+    font-family: $font-Roch;
+    font-size: 2em;
+    float: left;
+    margin-left: 5%;
+    width: 85%;
+  }
+  a#respond{
+    text-decoration: none; 
+    float: right;
+  }
+  ol {
+    @include clearfix();
+  }
+}
+//individual comment styles
+  li.comment {
+  margin-top: 5%;
+  @include clearfix();
+  height: 150px;
+ }
+ footer.comment-meta {
+  @include clearfix();
+  max-width: 30%;
+  float: left;
+ }
+ div.comment-author.vcard {
+  @include clearfix();
+  // max-width: 30%;
+  float: left;
+ }
+ div.comment-metadata {
+   width: 100%;   
+   span.edit-link a.comment-edit-link {
+    max-width: 100%;
+    @extend .btn;
+   }
+ }
+ div.comment-content {
+   float: right;
+   width: 60%;
+ }
 /*
  *==FOOTER STYLES
  */
@@ -344,6 +428,4 @@ input[type="search"] {
    color: ghostwhite;
    @include clearfix();
  }
- small {
-   padding: 1%;
- }
+ 

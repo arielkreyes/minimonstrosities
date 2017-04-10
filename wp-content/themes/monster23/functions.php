@@ -33,6 +33,35 @@ add_theme_support('title-tag');
 //improve the markup of Wordpress generated code
 add_theme_support('html5', array('search-form', 'comment-list', 'comment-form', 'gallery', 'caption',));
 
+/*
+ * Registering new font awesome script
+ */
+function monster23_scripts(){
+  wp_enqueue_script('font-awesome','https://use.fontawesome.com/ea07c8ffc1.js', array(), '4.7.0', true );
+}
+add_action('wp_enqueue_scripts', 'monster23_scripts');
+/*
+ *Helper function to handle pagination. Call in any template file.
+ */
+function monster23_pagination(){
+if(! is_singular()){
+  //archive pagination
+  if(function_exists('the_posts_pagination')){
+    the_posts_pagination();
+  }else{
+    echo '<div class="pagination">';
+    previous_posts_link('&larr; Newer Posts');
+    next_posts_link('Older Posts &rarr;');
+    echo '</div>';
+  }
+}else{
+  //single pagination
+  echo '<div class="pagination">';
+  previous_post_link('%link', '<i class="fa fa-arrow-left" aria-hidden="true"></i>Newer Post');//one Older post
+  next_post_link('%link', 'Older Posts <i class="fa fa-arrow-right" aria-hidden="true"></i>');
+  echo '</div>';
+}
+}//end of monster23_pagination
 
 /**
   *Create two menu locations. Display them with wp_nav_menu() in your templates
@@ -50,6 +79,15 @@ add_action( 'init', 'monster23_menus');
  * Call dynamic_sidebar() in ze templates to display them :)
  */
  function monster23_widget_areas(){
+   register_sidebar( array(
+     'name' =>  'Home Sidebar',
+     'id' =>  'home-sidebar',
+     'description'  => 'Appears on the Home Page only, showing the users login success and search widget.',
+     'before_widget'  =>  '<section id="%S1s" class="widget %2$s">',
+     'before_title' =>  '<h3 class="widgettitle">',
+     'after_title'  =>  '</h3>',
+     'after_widget' =>  '</section>',
+   ));
    register_sidebar( array(
      'name' => 'Blog Sidebar',
      'id' => 'blog-sidebar',
@@ -88,6 +126,7 @@ add_action( 'register_form', 'monster23_register_form');
 function monster23_register_form(){
   $first_name = ( ! empty( $_POST['first_name'])) ? trim($_POST['first_name']) : '';
   $last_name = ( ! empty( $_POST['last_name'])) ? trim($_POST['last_name']) : '';
+  $user_pass = ( ! empty( $_POST['user_pass'])) ? trim($_POST['user_pass']) : '';
 
   ?>
   <p>
@@ -97,6 +136,10 @@ function monster23_register_form(){
   <p>
     <label for="last_name">Last Name<br/>
       <input type="text" name="last_name" id="last_name" class="input" value="<?php echo esc_attr(wp_unslash($last_name)); ?>" size="40"/></label>
+  </p>
+  <p>
+    <label for="user_pass">Create a Password<br/>
+      <input type="password" name="user_pass" id="user_pass" class="input" value="<?php echo esc_attr(wp_unslash($user_pass)); ?>" size="40"/></label>
   </p>
   <?php
 }
@@ -112,6 +155,11 @@ function monster23_registration_errors($errors, $sanitized_user_login, $user_ema
     $errors->add('last_name_error', _('<strong>ERROR</strong>: You Must Include a Last Name.', 'mydomain'));
   }
     return $errors;
+    
+    if(empty($_POST['user_pass']) || ! empty($_POST['user_pass']) && trim($_POST['user_pass']) == ''){
+      $errors->add('user_pass_error', _('<strong>ERROR</strong>: You Must Create A Password.', 'mydomain'));
+    }
+      return $errors;
   }
   //3. Finally, save our extra registration user meta in ze database?
   add_action('user_register', 'monster23_user_register');

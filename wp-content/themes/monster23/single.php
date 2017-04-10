@@ -15,7 +15,7 @@
   <?php
       } // end while
       // TODO: add the "likes" plugin or make my own?? :D
-      //TODO: add the next and previous post buttons!! :D
+      monster23_pagination();
       comments_template( '/comments.php', true);
     } // end if
   ?>

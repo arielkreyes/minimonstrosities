@@ -17,9 +17,9 @@
 <section class="comments">
   
   <!-- Ternary Operator is a short if statement that is delightfully wonderful -->
-  <h3><?php echo $commentcount == 1 ? 'One Comment': $commentcount . 'Comments'; ?> on this Post</h3>
+  <h4>Comments</h4>
   <?php if( comments_open() ){ ?>
-  <a href="#respond">Leave a Comment</a>
+  <a href="#respond"><i class="fa fa-plus-circle fa-3x" aria-hidden="true"></i></a>
   <?php }//end of if statement for leave a comment ?>
   <ol>
     <?php wp_list_comments( array(
@@ -28,7 +28,7 @@
   </ol>
   
 <!-- Paginate comments if more than 5 comments :) -->
-  <?php if( get_comment_pages_count() > 1 ){
+  <?php if( get_comment_pages_count() > 5 ){
     echo '<div class="pagination">';
     paginate_comments_links();
     echo '</div>';
@@ -42,7 +42,7 @@
 <!-- Seperate Pings/Trackbacks from comments and place in own section if they exists -->
 <?php if( $pingscount !=0){ ?>
 <section class="trackbacks">
-  <h3><?php echo $pingscount == 1 ? 'One Site Link Here' : $pingscount . 'Sites Link Here'; ?></h3>
+  <h4><?php echo $pingscount == 1 ? 'One Site Link Here' : $pingscount . 'Sites Link Here'; ?></h4>
   <ol>
     <?php wp_list_comments( array(
       'type' => 'pings', //trackbacks and pingbacks 
