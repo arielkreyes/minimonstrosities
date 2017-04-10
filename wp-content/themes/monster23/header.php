@@ -10,7 +10,7 @@
   <body <?php body_class(); ?>>
       <header role="banner" id="header" style="background-image:url(<?php header_image(); ?>)">
         <div class="header-bar">
-        <?php 
+        <?php
         if(function_exists('the_custom_logo')){
           if( has_custom_logo()){
             the_custom_logo();
@@ -27,7 +27,7 @@
           'theme_location' => 'main_menu',
           'container' => 'nav', //div, nav or false
           'menu_class' => 'menu', //ul class="menu"
-        )); ?>  
+        )); ?>
         </div>
       </header>
     <div class="wrapper">

@@ -1,3 +1,9 @@
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
 body {
   height: 100%;
   background: -webkit-radial-gradient(center, ellipse cover, #4A3247 0%, #180E15 100%);
@@ -5,13 +11,63 @@ body {
 }
 
 /*CHANGING THE WP LOGO :D*/
+#login {
+  width: 350px;
+}
 .login h1 a {
   background-image: url(../images/crowns.png), url(../images/mm_logo_white.png);
   background-position: top, bottom;
-  width: 327px;
+  width: 350px;
   height: 180px;
-  background-size: 327px;
+  background-size: 350px;
+  margin-bottom: 0;
 }
-form#loginform label {
+form#loginform,
+form#registerform {
+  margin-top: 0;
+  background-color: transparent;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  width: 350px;
+}
+form#loginform label,
+form#registerform label,
+p#reg_passmail {
+  color: ghostwhite;
+}
+input#wp-submit {
+  float: left;
+  width: 150px;
+  height: 40px;
+  padding: 2%;
+  /*margin-right: 15%;*/
+  border: 2px solid ghostwhite;
+  border-bottom: 5px solid ghostwhite;
+  border-radius: 5px;
+  border-color: ghostwhite;
+  background-color: transparent;
+  color: ghostwhite;
+  font-weight: bold;
+  line-height: 1.25em;
+  text-shadow: none;
+}
+input#wp-submit:hover {
   color: #4A3247;
+  background-color: ghostwhite;
+}
+.login form p.forgetmenot {
+  float: right;
+}
+.login #backtoblog a, .login #nav a {
+  color: ghostwhite;
+}
+.login #login_error, .login .message {
+  background-color: transparent;
+  border-left: none;
+  box-shadow: none;
+  background: url(../images/banner.png)no-repeat;
+  width: 350px;
+  height: 97px;
+  background-size: 350px;
+  padding: 9% 0 0 20%;
 }

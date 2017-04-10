@@ -32,11 +32,10 @@ General comments (optional).
   display: block;
   width: 100%;
   font-size: 2.5em;
-  color: #360A14;
+  color: #180E15;
   font-family: 'Rochester', cursive;
   margin: 5% 5% 2% 0;
   padding: 2%;
-  border: 2px solid #c9a3a3;
   text-align: center; }
 
 .hthree-df, h3 {
@@ -61,6 +60,9 @@ General comments (optional).
 
 body {
   background: radial-gradient(#4A3247, #180E15); }
+
+.header-bar h2 {
+  color: ghostwhite; }
 
 .custom-logo-link {
   margin: 0 auto; }
@@ -106,7 +108,7 @@ nav {
       margin-right: 0; }
     nav ul.menu a {
       text-decoration: none;
-      color: #3B3A39;
+      color: ghostwhite;
       padding: 30% 0; }
 
 #menu-global-menu li.menu-item a:hover {
@@ -140,6 +142,9 @@ nav {
     display: table; }
   #content:after {
     clear: both; }
+  #content img {
+    max-width: 100%;
+    max-height: 100%; }
 
 .postmeta {
   background-color: rgba(59, 58, 57, 0.2);
@@ -217,7 +222,8 @@ h1 {
   border-bottom: 0;
   box-shadow: 0px 5px 0px 0px #CE4836; }
 
-input[type="text"] {
+input[type="text"],
+input[type="search"] {
   padding: 1%;
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
@@ -237,6 +243,8 @@ input[type="text"] {
     display: table; }
   .gallery:after {
     clear: both; }
+  .gallery img {
+    width: 100%; }
 
 /*
  *==FOOTER STYLES
