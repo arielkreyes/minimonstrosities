@@ -9,6 +9,43 @@ License: GPLv3L
 License URI:
 General comments (optional).
 */
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after {
+  content: '';
+  content: none; }
+
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
 /*
  *== FONTS - DOSIS/ROCHESTER -
 
@@ -93,11 +130,16 @@ input[type="submit"] {
 body {
   background: radial-gradient(#4A3247, #180E15); }
 
-.header-bar h2 {
-  color: ghostwhite; }
+.header-bar {
+  width: 100%;
+  height: 650px;
+  margin: 0; }
+  .header-bar .header-image {
+    width: 100%; }
 
 .custom-logo-link {
-  margin: 0 auto; }
+  width: 200px;
+  height: 200px; }
 
 .wrapper {
   position: relative;
@@ -119,6 +161,11 @@ article:before, article:after {
   display: table; }
 article:after {
   clear: both; }
+
+section.permanent p {
+  text-align: center;
+  font-family: "Rochester", cursive;
+  font-size: 2em; }
 
 /*
  *==NAV STYLES
@@ -218,8 +265,7 @@ div.pagination {
   .format-standard.status-publish.hentry h3 {
     position: absolute;
     top: 5%;
-    left: 5%;
-    background-color: #c9a3a3; }
+    left: 5%; }
 
 /*
  *==WIDGET AREA STYLES
@@ -230,7 +276,7 @@ div.pagination {
   top: 35px;
   left: 730px;
   background: #3B3A39;
-  color: #c9a3a3;
+  color: black;
   padding: 2%;
   width: 31.25%; }
   #sidebar:before, #sidebar:after {
@@ -262,7 +308,7 @@ table#wp-calendar {
     font-weight: bold;
     color: #3B3A39; }
   table#wp-calendar a {
-    color: #c9a3a3;
+    color: black;
     text-decoration: none; }
   table#wp-calendar td#today {
     font-weight: bold;
@@ -284,17 +330,15 @@ h1 {
  *==GALLERY STYLES
  */
 .gallery {
-  width: 30%;
+  width: 215px;
+  height: 215px;
   float: left;
-  margin: 2%;
-  position: relative; }
+  background: rgba(0, 0, 0, 0.5); }
   .gallery:before, .gallery:after {
     content: "";
     display: table; }
   .gallery:after {
     clear: both; }
-  .gallery img {
-    width: 100%; }
 
 /*
  *==COMMENT FORM STYLES

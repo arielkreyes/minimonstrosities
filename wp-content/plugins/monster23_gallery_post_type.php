@@ -22,16 +22,16 @@
       'menu_icon' =>  'dashicons-format-gallery',
       'menu_position' =>  10,
       'rewrite' =>  array('slug' => 'Gallery'),
-      'supports'  =>  array( 'title', 'editor', 'custom-fields', 'revisions', 'comments'),
+      'supports'  =>  array( 'thumbnail', 'title', 'editor', 'custom-fields', 'revisions', 'comments'),
    ));
    //attach 'uploaded date' taxonomy to gallery Images
    register_taxonomy('datetaken', 'gallery', array(
      'hierarchical' => true,
      'show_ui'  => true,
-      
+
    ));
  } //end of function monster23_create_post_type! <3
- 
+
  /**
   * Flush permalinks(rewrite rules) when this plugin is activated.
   * Prevents 404 errors

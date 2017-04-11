@@ -1,12 +1,17 @@
 <?php get_header(); //includes the header.php - wp function ?>
-<main id="content">  
+<main id="content">
+  <section class="permanent">
+    <h2>Welcome!</h2>
+    <p><?php bloginfo('description'); ?></p>
+
+  </section>
   <!--TODO: Custom Query To show Important Dates to remember/Coming Up for the girls. :)  -->
   <section class="recent-posts">
   <h3>Recent Blog Posts</h3>
   <!--Insert "the Loop" Here!  -->
   <?php if( have_posts() ){
   while( have_posts() ){
-    the_post(); 
+    the_post();
   ?>
       <article <?php post_class(); ?>>
           <div class="entry-content">
@@ -15,12 +20,12 @@
       </article>
         <!-- end .postmeta -->
       <!-- End of ze Post -->
-    <?php 
+    <?php
       } //end of while loop
     } //end of if statement
   else{
   echo 'Sorry, no posts to show';
-  } ?>      
+  } ?>
 </section>
 <!-- end of normal blog posts!  -->
 <section class="recent-gallery">
@@ -53,7 +58,7 @@
 ?>
 
 </section>
-</main>  
+</main>
 <!-- end of main#content ^_^  -->
   <?php get_sidebar('home');//including the sidebar :) ?>
   <?php get_footer();//including the footerrr :D ?>

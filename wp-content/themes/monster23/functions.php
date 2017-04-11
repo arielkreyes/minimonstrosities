@@ -1,23 +1,32 @@
 <?php
 //turn on sleeping features
 
-//adding support for a featured image
-add_theme_support('post-thumbnails');
+//adding support for a featured image for multiple post types listed
+add_theme_support('post-thumbnails', array('post', 'gallery', 'video'));
 
 //adding a logo to the theme. 'custom_logo()'
 add_theme_support( 'custom-logo', array(
-  'width'   =>  319,
-  'height'  =>  140,
+  'width'   =>  200,
+  'height'  =>  200,
 ));
 
-//adding a customizable header image *don't forget to show it in the header.php file :)
+//1.adding a customizable header image *don't forget to show it in the header.php file :)
 add_theme_support('custom-header', array(
-  'width' =>  960,
-  'height'  =>  500,
+  'width' =>  1366,
   'flex-width'  =>  true,
+  'height'  =>  400,
   'flex-height' => true,
+  'default-image' =>  get_template_directory_uri() . '/images/headers/default.jpg',
+  'uploads' =>  true,
 ));
-
+//2.register the default header image
+register_default_headers( array(
+  'explore' => array(
+    'url' =>  '%s/images/headers/default.jpg',
+    'thumbnail_url' =>  '%s/images/headers/default-thumbnail.jpg',
+    'description' =>  __('Explore', 'monster23'),
+  )
+));
 //adding a customizable Background
 add_theme_support('custom-background');
 
@@ -70,6 +79,7 @@ function monster23_menus(){
   register_nav_menus( array(
     'main_menu' => 'Main Navigation',
     'utility_menu' => 'Utility Menu',
+    'footer_menu' =>  'Footer Menu',
   ));
 }
 add_action( 'init', 'monster23_menus');
@@ -106,16 +116,7 @@ add_action( 'init', 'monster23_menus');
      'after_title'  =>  '</h3>',
      'after_widget' =>  '</section>',
    ));
-   register_sidebar( array(
-     'name' => 'Login Area',
-     'id' => 'login-area',
-     'description'  =>  'Login Page - User must be logged in to view the website',
-     'before_widget'  =>  '<nav id="%S1s" class="widget %2$s"',
-     'before_title' =>  '<h3 class="widgettitle">',
-     'after_title'  =>  '</h3>',
-     'after_widget' =>  '</nav>',
-   ));
- }//end of function aka_widget_areas
+ }//end of function monster23_widget_areas
  add_action('widgets_init', 'monster23_widget_areas');
 
  /*
@@ -155,7 +156,7 @@ function monster23_registration_errors($errors, $sanitized_user_login, $user_ema
     $errors->add('last_name_error', _('<strong>ERROR</strong>: You Must Include a Last Name.', 'mydomain'));
   }
     return $errors;
-    
+
     if(empty($_POST['user_pass']) || ! empty($_POST['user_pass']) && trim($_POST['user_pass']) == ''){
       $errors->add('user_pass_error', _('<strong>ERROR</strong>: You Must Create A Password.', 'mydomain'));
     }

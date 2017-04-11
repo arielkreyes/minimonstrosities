@@ -6,11 +6,9 @@
     while( have_posts() ){
       the_post();
       ?>
-
       <article class="gallery">
-        <?php the_post_thumbnail('thumbnail'); ?>
+        <?php get_the_post_thumbnail('thumbnail'); ?>
         <div class="entry-content">
-          <?php the_content(); ?>
           <?php the_date(); ?>
         </div>
       </article>

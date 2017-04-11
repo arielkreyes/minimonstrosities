@@ -9,7 +9,8 @@ License: GPLv3L
 License URI:
 General comments (optional).
 */
-
+//Imports - reset style sheet :)
+@import 'reset';
 /*
  *== FONTS - DOSIS/ROCHESTER -
 
@@ -42,7 +43,6 @@ $palegreen: #819B7F;
 // $mauve: #5E4546;
 //neutral colors
 $white: #FFF;
-$rose: #c9a3a3;
 $grey: #3B3A39;
 
 // MIXINS
@@ -152,11 +152,17 @@ body {
   // background: -webkit-radial-gradient(center, ellipse cover, #4A3247 0%, #180E15 100%);
   background: radial-gradient(#4A3247, #180E15);
 }
-.header-bar h2 {
-  color: ghostwhite;
+.header-bar {
+  width: 100%;
+  height: 650px;
+  margin: 0;
+  .header-image {
+    width: 100%;
+  }
 }
 .custom-logo-link {
-  margin: 0 auto;
+  width: 200px;
+  height: 200px;
 }
 .wrapper {
   @include clearfix();
@@ -171,6 +177,11 @@ body {
 }
 article {
   @include clearfix();
+}
+section.permanent p {
+  text-align: center;
+  font-family: $font-Roch;
+  font-size: 2em;
 }
 /*
  *==NAV STYLES
@@ -282,7 +293,6 @@ article {
      position: absolute;
      top: 5%;
      left: 5%;
-     background-color: $rose;
    }
  }
 
@@ -296,7 +306,7 @@ article {
   top: 35px;
   left: 730px;
   background: $grey;
-  color: $rose;
+  color: black;
   padding: 2%;
   width: 300px / 960px * 100%;
 }
@@ -321,7 +331,7 @@ table#wp-calendar {
     color: map-get($colors, backbone);
   }
   a {
-    color: $rose;
+    color: black;
     text-decoration: none;
   }
   td#today {
@@ -358,13 +368,10 @@ h4 {
  */
  .gallery {
    @include clearfix();
-   width: 30%;
+   width: 215px;
+   height: 215px;
    float: left;
-   margin: 2%;
-   position: relative;
-   img {
-     width: 100%;
-   }
+   background: rgba(0, 0, 0, .5);
  }
  /*
   *==COMMENT FORM STYLES
@@ -375,7 +382,7 @@ section.comments {
   background: url(images/comments_divider.png)no-repeat;
   background-position: top left;
   padding-top: 65px;
-  
+
   h4 {
     font-family: $font-Roch;
     font-size: 2em;
@@ -384,7 +391,7 @@ section.comments {
     width: 85%;
   }
   a#respond{
-    text-decoration: none; 
+    text-decoration: none;
     float: right;
   }
   ol {
@@ -408,7 +415,7 @@ section.comments {
   float: left;
  }
  div.comment-metadata {
-   width: 100%;   
+   width: 100%;
    span.edit-link a.comment-edit-link {
     max-width: 100%;
     @extend .btn;
@@ -428,4 +435,3 @@ section.comments {
    color: ghostwhite;
    @include clearfix();
  }
- 

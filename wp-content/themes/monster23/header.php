@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css?family=Dosis:300,400,600,700|Rochester" rel="stylesheet" />
   </head>
   <body <?php body_class(); ?>>
-      <header role="banner" id="header" style="background-image:url(<?php header_image(); ?>)">
+      <header role="banner" id="header">
         <div class="header-bar">
         <?php
         if(function_exists('the_custom_logo')){
@@ -22,7 +22,7 @@
           }//end of else statement
         }//end of function_exists
         ?>
-        <h2><?php bloginfo('description'); ?></h2>
+        <img src="<?php header_image(); ?>" height="<?php echo get_custom_header()->height; ?>" width="<?php echo get_custom_header()->width; ?>" class="header-image" alt=""/>
         <?php wp_nav_menu( array(
           'theme_location' => 'main_menu',
           'container' => 'nav', //div, nav or false
