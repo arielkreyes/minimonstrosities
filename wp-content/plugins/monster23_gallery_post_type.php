@@ -14,6 +14,8 @@
         'name' =>  __('Gallery Images'),
         'singular_name'  =>  __('Gallery Image'),
         'add_new_item' =>  'Add New Image',
+        'edit_item' =>  'Edit Image',
+        'view_item' =>  'View Image',
         'not_found' =>  'No Images Found',
         'search_images' =>  'Search Images'
         ),
@@ -22,7 +24,7 @@
       'menu_icon' =>  'dashicons-format-gallery',
       'menu_position' =>  10,
       'rewrite' =>  array('slug' => 'Gallery'),
-      'supports'  =>  array( 'thumbnail', 'title', 'editor', 'custom-fields', 'revisions', 'comments'),
+      'supports'  =>  array( 'post-formats', 'thumbnail', 'title', 'editor', 'custom-fields', 'revisions', 'comments'),
    ));
    //attach 'uploaded date' taxonomy to gallery Images
    register_taxonomy('datetaken', 'gallery', array(

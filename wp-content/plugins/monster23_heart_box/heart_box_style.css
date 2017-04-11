@@ -1,0 +1,79 @@
+html {
+  background: -webkit-radial-gradient(center, ellipse cover, #4A3247 0%, #180E15 100%);
+  background: radial-gradient(#4A3247, #180E15);
+}
+.heart-box {  
+  display: flex;  
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 300px;
+}
+/* i Heart Styles */
+.heart {
+  background-color: mediumvioletred;
+  display: inline-block;
+  height: 30px;
+  margin: 0 10px;
+  position: relative;
+  top: 0;
+  transform: rotate(-45deg);
+  width: 30px;
+}
+.heart:before,
+.heart:after {
+  content: "";
+  background-color: mediumvioletred;
+  border-radius: 50%;
+  height: 30px;
+  position: absolute;
+  width: 30px;
+}
+
+.heart:before {
+  top: -15px;
+  left: 0;
+}
+
+.heart:after {
+  left: 15px;
+  top: 0;
+}
+
+@-webkit-keyframes pulse{
+	0%{
+		-webkit-transform:scale(0.90);
+		opacity:0.7;
+	}
+	50%{
+		-webkit-transform:scale(1);
+		opacity:1;
+	}
+	100%{
+		-webkit-transform:scale(0.90);
+		opacity:0.7;
+	}
+}
+	@keyframes pulse{
+		0%{
+			transform:scale(0.90);
+			opacity:0.7;
+		}
+		50%{
+			transform:scale(1);
+			opacity:1;
+		}
+		100%{
+			transform:scale(0.90);
+			opacity:0.7;
+		}
+}
+.heart-box{
+	-webkit-animation-name:pulse;
+	-webkit-animation-duration:4s;
+	-webkit-animation-iteration-count:infinite;
+
+	animation-name:pulse;
+	animation-duration:4s;
+	animation-iteration-count:infinite;
+}

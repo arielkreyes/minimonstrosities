@@ -17,16 +17,25 @@
  *
  * @package WordPress
  */
-
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define('DB_NAME', 'ar_minimonstrosities');
 
+if($_SERVER['HTTP_HOST'] == 'localhost' ){
+//if on the local host server use these credentials
+define('DB_NAME', 'ar_minimonstrosities');
 /** MySQL database username */
 define('DB_USER', 'ar_minimonstrosities');
-
 /** MySQL database password */
 define('DB_PASSWORD', 'QS7PqnxWDTafCbKy');
+
+}else{
+//if on LIVE Server use these credentials instead
+define('DB_NAME', 'crmsnmn_minimonstrosities');
+/** MySQL database username */
+define('DB_USER', 'crmsnmn_ariel');
+/** MySQL database password */
+define('DB_PASSWORD', 'AWolfyR23@#');
+}
 
 /** MySQL hostname */
 define('DB_HOST', 'localhost');

@@ -2,9 +2,9 @@
 <main id="content">
   <h2><?php wp_title(''); ?></h2>
   <!--Insert "the Loop" Here!  -->
-  <?php if( have_posts() ){
-    while( have_posts() ){
-      the_post();
+  <?php if( has_post_format('gallery') ){
+    while( has_post_format('gallery') ){
+      get_post_format()
       ?>
       <article class="gallery">
         <?php get_the_post_thumbnail('thumbnail'); ?>

@@ -35,19 +35,10 @@ $colors: (
  *== COLORS
   bright & fun for a feminine look
   */
-
-//$magenta: #DD2B52;
-$violet: #794065;
-$palegreen: #819B7F;
-//$softorange: #CE4836;
-// $mauve: #5E4546;
-//neutral colors
 $white: #FFF;
 $grey: #3B3A39;
 
 // MIXINS
-//TODO: Add mixin for border radius stuffs & drop shadow things. :D
-
 //box-sizing: border-box snippet ^_^
 @mixin box-sizing($box-model) {
  -webkit-box-sizing: $box-model; // Safari <= 5

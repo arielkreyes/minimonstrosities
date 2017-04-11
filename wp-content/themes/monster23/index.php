@@ -1,6 +1,7 @@
 <?php get_header(); //includes the header.php - wp function ?>
 <main id="content">
   <h2><?php wp_title(''); ?></h2>
+
   <!--Insert "the Loop" Here!  -->
   <?php if( have_posts() ){
   while( have_posts() ){

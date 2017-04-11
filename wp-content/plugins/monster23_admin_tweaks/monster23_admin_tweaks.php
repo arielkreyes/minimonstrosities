@@ -42,5 +42,22 @@ function monster23_modify_toolbar($wp_admin_bar){
  ));
 }
 add_action( 'admin_bar_menu', 'monster23_modify_toolbar', 999);
-//TODO: edit the dashboard widgets for ze admin stuffs
+/*
+ * Remove Unwanted Dashboard Widgets and Add My Own
+ */
+function monster23_dashboard_widgets(){
+  //id of the box, screen located on, column
+  //remove widget boxes using parameters above
+  remove_meta_box('dashboard_quick_press', 'dashboard', 'side');
+  remove_meta_box('dashboard_primary', 'dashboard', 'side');
+  //$id, $title, $callback, $screen, $context, $priority, $callback_args
+  //add widget boxes here using parameters above
+}
+add_action('admin_init', 'monster23_dashboard_widgets');
+
+
+
+
+
+
 //TODO: Edit the user interface for ze contributors :) (mom and peoples) :)
