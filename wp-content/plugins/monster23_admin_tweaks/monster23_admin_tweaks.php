@@ -32,14 +32,8 @@ function monster23_login_logo_title(){
 add_filter('login_headertitle', monster23_login_logo_title);
 function monster23_modify_toolbar($wp_admin_bar){
  //get rid of wordpress logo and its dropdown menu
- $wp_admin_bar->remove_node('wp-admin-bar-wp-logo');
+ $wp_admin_bar->remove_node('wp-logo');
  //add our own 'help' Button
- $wp_admin_bar->add_node( array(
-   'id'  =>  'monster23-help-menu',
-   'title' =>  'Contact Ariel', 
-   'href'  =>  'http://melissacabral.com',
-   'meta'  =>  array( 'target' =>  '_blank'),//open into new tab
- ));
 }
 add_action( 'admin_bar_menu', 'monster23_modify_toolbar', 999);
 /*

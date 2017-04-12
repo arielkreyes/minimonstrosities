@@ -144,6 +144,7 @@ function monster23_customizer( $wp_customize ){
     'label' =>  'Tertiary Logo',
     'section' =>  'title_tagline', //built in 'site identity' section
     'settings'  =>  'tertiary_logo',
+    'context' =>  'alt text',
   )));
   //adding layout options (custom header size?)
   $wp_customize->add_section('monster23_layout', array(
@@ -198,72 +199,14 @@ function monster23_custom_css(){
 function monster23_secondary_logo(){
    //wp stores as an attachment post :)
    $logo = get_theme_mod( 'secondary_logo');
-  if($logo){
-    echo wp_get_attachment_image( $logo, 'thumbnail', false, array(
-      'class' =>  'secondary-logo',
-    ));
+   if($logo){  
+    echo '<img src="' . $logo . '" alt="" />';
   }
 }//end of monster23_seondary_logo
 
 function monster23_tertiary_logo(){
-   //wp stores as an attachment post :)
    $logo = get_theme_mod( 'tertiary_logo');
-  if($logo){
-    echo wp_get_attachment_image( $logo, 'thumbnail', false, array(
-      'class' =>  'tertiary-logo',
-    ));
+  if($logo){  
+   echo '<img src="' . $logo . '" alt="" />';
   }
 }//end of monster23_tertiary_logo
-
- /*
-  *==USER REGISTRATION FORM
-  */
-//1.adding the form elements!
-add_action( 'register_form', 'monster23_register_form');
-function monster23_register_form(){
-  $first_name = ( ! empty( $_POST['first_name'])) ? trim($_POST['first_name']) : '';
-  $last_name = ( ! empty( $_POST['last_name'])) ? trim($_POST['last_name']) : '';
-  $user_pass = ( ! empty( $_POST['user_pass'])) ? trim($_POST['user_pass']) : '';
-  ?>
-  <p>
-    <label for="first_name">First Name<br/>
-      <input type="text" name="first_name" id="first_name" class="input" value="<?php echo esc_attr(wp_unslash($first_name)); ?>" size="40"/></label>
-  </p>
-  <p>
-    <label for="last_name">Last Name<br/>
-      <input type="text" name="last_name" id="last_name" class="input" value="<?php echo esc_attr(wp_unslash($last_name)); ?>" size="40"/></label>
-  </p>
-  <p>
-    <label for="user_pass">Create a Password<br/>
-      <input type="password" name="user_pass" id="user_pass" class="input" value="<?php echo esc_attr(wp_unslash($user_pass)); ?>" size="40"/></label>
-  </p>
-  <?php
-}
-//2.add validation. Make sure required elements are inputted by user
-add_filter('registration_errors', 'monster23_registration_errors', 10, 3);
-function monster23_registration_errors($errors, $sanitized_user_login, $user_email){
-  if(empty($_POST['first_name']) || ! empty($_POST['first_name']) && trim($_POST['first_name']) == ''){
-    $errors->add('first_name_error', _('<strong>ERROR</strong>: You Must Include a First Name.', 'mydomain'));
-  }
-    return $errors;
-
-  if(empty($_POST['last_name']) || ! empty($_POST['last_name']) && trim($_POST['last_name']) == ''){
-    $errors->add('last_name_error', _('<strong>ERROR</strong>: You Must Include a Last Name.', 'mydomain'));
-  }
-    return $errors;
-
-    if(empty($_POST['user_pass']) || ! empty($_POST['user_pass']) && trim($_POST['user_pass']) == ''){
-      $errors->add('user_pass_error', _('<strong>ERROR</strong>: You Must Create A Password.', 'mydomain'));
-    }
-      return $errors;
-  }
-  //3. Finally, save our extra registration user meta in ze database?
-  add_action('user_register', 'monster23_user_register');
-  function monster23_user_register($user_id){
-    if(! empty($_POST['first_name'])){
-      update_user_meta($user_id, 'first_name', trim($_POST['first_name']));
-    }
-    if(! empty($_POST['last_name'])){
-      update_user_meta($user_id, 'last_name', trim($_POST['last_name']));
-    }
-  }
