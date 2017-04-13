@@ -272,18 +272,30 @@ section.permanent p {
 }
  //*==POST STYLES (blog)
  .format-standard.status-publish.hentry {
-   background: url(images/post_divider.png)no-repeat;
-   background-position: bottom;
+   display: flex;
+   background: linear-gradient(#FF476A, #732030);
    position: relative;
    width: 100%;
    height: 300px;
    overflow: hidden;
    margin-bottom: 5%;
-   border: 3px solid red;
-   h3 {
-     position: absolute;
-     top: 5%;
-     left: 5%;
+   a img {
+     max-width: 65%;
+   }
+ }
+ .format-standard.status-publish.hentry div.info-wrap  {
+   padding: 3%;
+   width: 45%;
+   color: ghostwhite;
+   h3.entry-title {
+     text-align: center;
+     margin-bottom: 7%;
+     a {
+       color: ghostwhite;
+     }
+   }
+   div.entry-content {
+     margin-bottom: 5%;
    }
  }
 

@@ -254,18 +254,27 @@ div.pagination {
   font-weight: bold; }
 
 .format-standard.status-publish.hentry {
-  background: url(images/post_divider.png) no-repeat;
-  background-position: bottom;
+  display: flex;
+  background: linear-gradient(#FF476A, #732030);
   position: relative;
   width: 100%;
   height: 300px;
   overflow: hidden;
-  margin-bottom: 5%;
-  border: 3px solid red; }
-  .format-standard.status-publish.hentry h3 {
-    position: absolute;
-    top: 5%;
-    left: 5%; }
+  margin-bottom: 5%; }
+  .format-standard.status-publish.hentry a img {
+    max-width: 65%; }
+
+.format-standard.status-publish.hentry div.info-wrap {
+  padding: 3%;
+  width: 45%;
+  color: ghostwhite; }
+  .format-standard.status-publish.hentry div.info-wrap h3.entry-title {
+    text-align: center;
+    margin-bottom: 7%; }
+    .format-standard.status-publish.hentry div.info-wrap h3.entry-title a {
+      color: ghostwhite; }
+  .format-standard.status-publish.hentry div.info-wrap div.entry-content {
+    margin-bottom: 5%; }
 
 /*
  *==WIDGET AREA STYLES
