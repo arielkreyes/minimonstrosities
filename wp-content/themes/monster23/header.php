@@ -11,6 +11,9 @@
       <header role="banner" id="header">
         <div class="header-bar">
         <?php
+        // if(! current_user_can('activate_plugins')){
+        //   show_admin_bar(false);
+        // }
         if(function_exists('the_custom_logo')){
           if( has_custom_logo()){
             the_custom_logo();

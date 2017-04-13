@@ -49,6 +49,55 @@ function monster23_dashboard_widgets(){
 }
 add_action('admin_init', 'monster23_dashboard_widgets');
 
+/* 
+ *== REGISTRATION FORM THINGS
+ */
+//1.Add the new form elements
+add_action('register_form', 'monster23_register_form');
+function monster23_register_form(){
+  //add first name field
+  $first_name = ( ! empty( $_POST['first_name'])) ? trim( $_POST['first_name']) : '';
+  ?>
+  <label for="first_name"><?php _e( 'First Name', 'mydomain' ) ?><br />
+  <input type="text" name="first_name" id="first_name" class="input" value="<?php echo esc_attr( wp_unslash( $first_name ) ); ?>" size="25" /></label>
+  </p>
+  <?php
+  //last name field
+  $last_name = ( ! empty( $_POST['last_name'])) ? trim( $_POST['last_name']) : '';
+  ?>
+  <label for="last_name"><?php _e( 'Last Name', 'mydomain' ) ?><br />
+  <input type="text" name="last_name" id="last_name" class="input" value="<?php echo esc_attr( wp_unslash( $last_name ) ); ?>" size="25" /></label>
+  </p>
+  <?php
+}//end of monster23_register_form
+//2.Add Validation. All fields are required.
+add_filter('registration_errors', 'monster23_registration_errors', 10, 3);
+function monster23_registration_errors($errors, $sanitized_user_login, $user_email){
+  //first name field
+  if( empty($_POST['first_name']) || ! empty($_POST['first_name']) && trim($_POST['first_name']) == ''){
+    $errors->add('first_name_error', __('<strong>ERROR</strong> : You Must Include A First Name.', 'mydomain'));
+  }
+  return $errors;
+  //last name field
+  if( empty($_POST['last_name']) || ! empty($_POST['last_name']) && trim($_POST['last_name']) == ''){
+    $errors->add('last_name_error', __('<strong>ERROR</strong> : You Must Include A Last Name.', 'mydomain'));
+  }
+  return $errors;
+}//end of mosnter23_registration_errors
+//3.Save the extra Registration User Meta.
+add_action('user_register', 'monster23_user_register');
+function monster23_user_register($user_id){
+  if( ! empty($_POST['first_name'])){
+    update_user_meta($user_id,'first_name', trim($_POST['first_name']));
+  }
+  if( ! empty($_POST['last_name'])){
+    update_user_meta($user_id,'last_name', trim($_POST['last_name']));
+  }
+}//end of mosnter23_user_register
+
+
+
+
 
 
 
