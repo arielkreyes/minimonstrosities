@@ -98,6 +98,10 @@ input[type="submit"] {
   padding: 1%;
   @include border-radius(5px);
   background-color: transparent;
+  display: block;
+}
+input[type="search"] {
+
 }
 // input[type="text"].greenisgo {
 //   border: 3px solid darkgreen;
@@ -123,8 +127,7 @@ input[type="submit"] {
   color: map-get($colors, secondary);
   font-size: 2em;
   margin: 0;
-  border-bottom: 2px solid;
-  margin-right: 5%;
+  // margin-right: 5%;
 }
 .hfour-df {
   font-size: 1.25em;
@@ -138,22 +141,21 @@ input[type="submit"] {
 *:before {
   @include box-sizing(border-box);
 }
-// Move Gradient Down to ADD/CREATE vector flowers and shindigs!
 body {
   // background: -webkit-radial-gradient(center, ellipse cover, #4A3247 0%, #180E15 100%);
   background: radial-gradient(#4A3247, #180E15);
 }
 .header-bar {
   width: 100%;
-  height: 650px;
+  height: 475px;
   margin: 0;
+  .custom-logo-link {
+    position: absolute;
+    padding: 2%;
+}
   .header-image {
     width: 100%;
   }
-}
-.custom-logo-link {
-  width: 200px;
-  height: 200px;
 }
 .wrapper {
   @include clearfix();
@@ -181,16 +183,16 @@ section.permanent p {
    text-decoration: none;
  }
  nav {
+   top: 430px;
    display: flex;
    justify-content: space-around;
    vertical-align: inherit;
    display: -webkit-flex; /* Support for older browsers */
    max-width: 100%;
-  //  margin: 0 auto;
+   z-index: 10;
   ul.menu  {
     display: inline-flex;
-    // max-width: 100%;
-    padding: 0;
+    padding: 3% 0 0 0;
     li:first-of-type {
       margin-left: 0;
     }
@@ -206,40 +208,17 @@ section.permanent p {
      a {
        text-decoration: none;
        color: map-get($colors, primary-dark);
-       padding: 30% 0;
+       padding: 10% 10% 25% 10%;
      }
-   }
- }
- div.nav-links {
-   a.next.page-numbers, a.prev.page-numbers {
-     @extend .btn;
-     display: inline-block;
-   }
-   a.page-numbers {
-     font-weight: bold;
-     font-size: 1.25em;
-     color: black;
-   }
-   span.current {
-     font-size: 1.45em;
-     font-weight: bold;
-     border-bottom: 5px solid map-get($colors, accent);
-     padding: 0 3%;
-   }
- }
- div.pagination {
-   width: 100%;
-   display: flex;
-   justify-content: space-around;
-   a {
-    @extend .btn;
-    width: 175px;
-    padding: 1%;
    }
  }
  #menu-global-menu li.menu-item a:hover {
    color: map-get($colors, secondary );
  }
+ #menu-global-menu li.current-menu-item a {
+       background: white;
+       color: black;
+     }
  #menu-utility-menu li.menu-item {
    font-size: 1em;
    margin: 0 10px;
@@ -250,6 +229,7 @@ section.permanent p {
      color: map-get($colors, backbone);
    }
  }
+
  #content {
   @include clearfix();
   width: 660px / 960px * 100%;
@@ -265,10 +245,13 @@ section.permanent p {
   }
 }
 .postmeta {
-  background-color: rgba($grey, .2);
+  margin: 2% 0;
   padding: 1%;
   @include border-radius(2px);
-  font-weight: bold;
+  font-style: italic;
+}
+.entry-content {
+  padding-left: 2%;
 }
  //*==POST STYLES (blog)
  .format-standard.status-publish.hentry {
@@ -280,22 +263,25 @@ section.permanent p {
    overflow: hidden;
    margin-bottom: 5%;
    a img {
+     width: 100%;
+     height: 100%;
      max-width: 65%;
    }
  }
  .format-standard.status-publish.hentry div.info-wrap  {
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
    padding: 3%;
    width: 45%;
    color: ghostwhite;
    h3.entry-title {
      text-align: center;
-     margin-bottom: 7%;
      a {
        color: ghostwhite;
      }
    }
    div.entry-content {
-     margin-bottom: 5%;
    }
  }
 
@@ -377,6 +363,21 @@ h4 {
    background: rgba(0, 0, 0, .5);
  }
  /*
+  *==PAGINATION STYLES
+  */
+div.pagination {
+  max-width: 100%;
+  display: flex;
+  justify-content: space-between;
+  a {
+    color: black;
+    margin: 2%;
+  }
+  &:hover {
+    color: map-get($colors, accent);
+  }
+}
+ /*
   *==COMMENT FORM STYLES
   */
 section.comments {
@@ -385,36 +386,49 @@ section.comments {
   background: url(images/comments_divider.png)no-repeat;
   background-position: top left;
   padding-top: 65px;
-
-  h4 {
-    font-family: $font-Roch;
-    font-size: 2em;
-    float: left;
-    margin-left: 5%;
-    width: 85%;
-  }
-  a#respond{
+  a{
+    display: block;
     text-decoration: none;
     float: right;
+    color: black;
+    &:hover {
+      color: map-get($colors, accent);
+    }
   }
-  ol {
-    @include clearfix();
-  }
+}
+section.comments-form {
+  position:relative;
+  background: url(images/write_comment_divider.png)no-repeat;
+  background-position: top left;
+  padding-top: 65px;
+}
+section.comments h4,
+section.comments-form h3 {
+  display: block;
+  font-family: $font-Roch;
+  font-size: 2.25em;
+  float: left;
+  width: 85%;
+  font-variant: normal;
+  color: black;
 }
 //individual comment styles
   li.comment {
-  margin-top: 5%;
+    &:first-of-type {
+    margin-top: 10%;
+    }
   @include clearfix();
   height: 150px;
+  margin-bottom: 5%;
  }
  footer.comment-meta {
   @include clearfix();
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   max-width: 30%;
-  float: left;
- }
- div.comment-author.vcard {
-  @include clearfix();
-  // max-width: 30%;
+  height: 150px;
   float: left;
  }
  div.comment-metadata {
@@ -425,16 +439,36 @@ section.comments {
    }
  }
  div.comment-content {
+   display: flex;
+   align-items: center;
    float: right;
    width: 60%;
+   height: 150px;
+ &:after {
+   background: url(images/i_comment_divider.png)no-repeat;
+   position:relative;
+   background-position: top left;
+   padding-top: 65px;
  }
+}
 /*
  *==FOOTER STYLES
  */
  footer {
+   background-color: black;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
    font-family: $font-body;
    width: 100%;
    margin: 0;
    color: ghostwhite;
    @include clearfix();
+   section {
+     font-size: .95em;
+   }
+   img,
+   div img {
+     margin: 2% 0;
+   }
  }

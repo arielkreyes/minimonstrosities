@@ -6,7 +6,7 @@ add_theme_support('post-thumbnails', array('post', 'gallery', 'video'));
 //adding a logo to the theme. 'custom_logo()'
 add_theme_support( 'custom-logo', array(
   'width'   =>  200,
-  'height'  =>  200,
+  'height'  =>  50,
 ));
 
 //1.adding a customizable header image *don't forget to show it in the header.php file :)
@@ -41,6 +41,17 @@ add_theme_support('title-tag');
 //improve the markup of Wordpress generated code
 add_theme_support('html5', array('search-form', 'comment-list', 'comment-form', 'gallery', 'caption',));
 
+//changing the excerpt length and customization
+function monster23_excerpt_length($length){
+  //short Excerpt for Search Results!
+  if( is_search()){
+  return 20; //words yo
+}else{
+  return 40; //words for blog
+  }
+}
+add_filter('excerpt_length', 'monster23_excerpt_length');
+
 //improving UX of replying to comments
 function monster23_comments_reply(){
   wp_enqueue_script('comment_reply');
@@ -63,15 +74,15 @@ if(! is_singular()){
     the_posts_pagination();
   }else{
     echo '<div class="pagination">';
-    previous_posts_link('&larr; Newer Posts');
-    next_posts_link('Older Posts &rarr;');
+    previous_post_link('<i class="fa fa-arrow-right fa-2x" aria-hidden="true"></i>');
+    next_post_link('<i class="fa fa-arrow-right" aria-hidden="true"></i>');
     echo '</div>';
   }
 }else{
   //single pagination
   echo '<div class="pagination">';
-  previous_post_link('%link', '<i class="fa fa-arrow-left" aria-hidden="true"></i>Newer Post');//one Older post
-  next_post_link('%link', 'Older Posts <i class="fa fa-arrow-right" aria-hidden="true"></i>');
+  previous_post_link('%link', '<i class="fa fa-arrow-left fa-2x" aria-hidden="true"></i>');//one Older post
+  next_post_link('%link', '<i class="fa fa-arrow-right fa-2x" aria-hidden="true"></i>');
   echo '</div>';
 }
 }//end of monster23_pagination
@@ -127,11 +138,11 @@ add_action( 'init', 'monster23_menus');
   */
 add_action('customize_register', 'monster23_customizer');
 function monster23_customizer( $wp_customize ){
-  //register all sections, settings, and controls here: 
+  //register all sections, settings, and controls here:
   //TODO: Do I need to add a third logo to display a thumbnail version of the primary logo???*
   //adding Second custom logo!
   $wp_customize->add_setting('secondary_logo');
-  
+
   $wp_customize->add_control( new WP_Customize_Image_Control($wp_customize, 'secondary_logo_control', array(
     'label' =>  'Secondary Logo',
     'section' =>  'title_tagline', //built in 'site identity' section
@@ -139,7 +150,7 @@ function monster23_customizer( $wp_customize ){
   )));
   //adding Second custom logo!
   $wp_customize->add_setting('tertiary_logo');
-  
+
   $wp_customize->add_control( new WP_Customize_Image_Control($wp_customize, 'tertiary_logo_control', array(
     'label' =>  'Tertiary Logo',
     'section' =>  'title_tagline', //built in 'site identity' section
@@ -199,14 +210,14 @@ function monster23_custom_css(){
 function monster23_secondary_logo(){
    //wp stores as an attachment post :)
    $logo = get_theme_mod( 'secondary_logo');
-   if($logo){  
+   if($logo){
     echo '<img src="' . $logo . '" alt="" />';
   }
 }//end of monster23_seondary_logo
 
 function monster23_tertiary_logo(){
    $logo = get_theme_mod( 'tertiary_logo');
-  if($logo){  
+  if($logo){
    echo '<img src="' . $logo . '" alt="" />';
   }
 }//end of monster23_tertiary_logo

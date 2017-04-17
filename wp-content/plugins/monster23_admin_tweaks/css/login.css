@@ -1,21 +1,23 @@
 html {
   box-sizing: border-box;
+
 }
 *, *:before, *:after {
   box-sizing: inherit;
 }
 body.login {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  background: -webkit-radial-gradient(center, ellipse cover, #4A3247 0%, #180E15 100%);
-  background: radial-gradient(#4A3247, #180E15);
+  background:url(http://placekitten.com/1920/1000)no-repeat;
 }
 
 /*CHANGING THE WP LOGO :D*/
 div#login {
-  width: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: radial-gradient(#0ecde9, #025e83);
+  width: 35%;
+  height: 100%;
+  float: right;
 }
 .login h1 a {
   background-image: url(../images/mm_emblem_white.png);
@@ -69,5 +71,6 @@ input#wp-submit:hover {
   width: 350px;
   height: 97px;
   background-size: 350px;
-  padding: 9% 0 0 20%;
+  padding: 26px 24px 46px;
+  color: ghostwhite;
 }

@@ -17,6 +17,8 @@
         if(function_exists('the_custom_logo')){
           if( has_custom_logo()){
             the_custom_logo();
+            ?>
+          <?php
           }else{
             //show title of the website
             ?>
@@ -25,11 +27,6 @@
           }//end of else statement
         }//end of function_exists
         ?>
-        <?php wp_nav_menu( array(
-          'theme_location' => 'utility_menu',
-          'container' => 'nav', //div, nav or false
-          'menu_class' => 'menu', //ul class="menu"
-        )); ?>
         <img src="<?php header_image(); ?>" height="<?php echo get_custom_header()->height; ?>" width="<?php echo get_custom_header()->width; ?>" class="header-image" alt=""/>
         <?php wp_nav_menu( array(
           'theme_location' => 'main_menu',

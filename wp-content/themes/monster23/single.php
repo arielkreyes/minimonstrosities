@@ -5,9 +5,8 @@
   	while ( have_posts() ) {
   		the_post();
   		?>
-  <h2 class="page-title"><?php the_title(); ?></h2>  
-    <h4>By: <?php the_author();?><br/>
-    <?php the_date();?></h4>
+  <h2 class="page-title"><?php the_title(); ?></h2>
+    <h4 class="postmeta">By: <?php the_author(); the_date();?></h4>
     <?php the_post_thumbnail('medium'); ?>
   <div class="entry-content">
     <?php the_content(); ?>

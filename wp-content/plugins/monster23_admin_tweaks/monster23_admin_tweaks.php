@@ -1,4 +1,4 @@
-<?php 
+<?php
 /*
  * Plugin Name: Monster23 Admin Tweaks
  * Description: Customizes the Login Form, Register form, and Admin Screens
@@ -11,11 +11,16 @@
    * TODO: Must be Logged IN to view the website otherwise register and wait for confirmation code from admin aka ME >:)
    * Style the Login, Register, and Forgot Password Fomrs with an external stylesheet ^_^
    */
-   
+
 function monster23_login_style(){
   $style_url  = plugins_url('css/login.css',  __FILE__);
   //put zis on ze page // handle, url
   wp_enqueue_style( 'login_css', $style_url );
+  //attach jquery
+  wp_enqueue_script('jquery');
+  //attach custom script
+	$script_url = plugins_url( 'js/split_style.js', __FILE__ );
+	wp_enqueue_script( 'split_style_js', $script_url );
 }
 add_action('login_enqueue_scripts', 'monster23_login_style');
 
@@ -49,7 +54,7 @@ function monster23_dashboard_widgets(){
 }
 add_action('admin_init', 'monster23_dashboard_widgets');
 
-/* 
+/*
  *== REGISTRATION FORM THINGS
  */
 //1.Add the new form elements
