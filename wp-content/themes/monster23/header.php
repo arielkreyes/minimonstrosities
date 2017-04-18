@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="<?php bloginfo('language'); ?>">
+<html lang="<?php bloginfo('language'); ?>" <?php language_attributes(); ?>>
   <head>
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -27,12 +27,13 @@
           }//end of else statement
         }//end of function_exists
         ?>
-        <img src="<?php header_image(); ?>" height="<?php echo get_custom_header()->height; ?>" width="<?php echo get_custom_header()->width; ?>" class="header-image" alt=""/>
         <?php wp_nav_menu( array(
           'theme_location' => 'main_menu',
           'container' => 'nav', //div, nav or false
           'menu_class' => 'menu', //ul class="menu"
         )); ?>
+        <img src="<?php header_image(); ?>" height="<?php echo get_custom_header()->height; ?>" width="<?php echo get_custom_header()->width; ?>" class="header-image" alt=""/>
+
         </div>
       </header>
     <div class="wrapper">

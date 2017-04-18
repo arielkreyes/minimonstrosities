@@ -4,7 +4,7 @@ Theme URI: http://wordpress.org/
 Description: Feminine & Cute Theme.
 Author: Ariel Reyes
 Version: 1.0
-Tags: pink, white, grey, two-columns, fixed-width, custom-header, custom-background, threaded-comments, sticky-post, translation-ready, microformats, rtl-language-support, editor-style, custom-menu (optional)
+Tags: two-columns, custom-header, custom-background, threaded-comments, sticky-post, translation-ready, microformats, rtl-language-support, editor-style, custom-menu (optional)
 License: GPLv3L
 License URI:
 General comments (optional).
@@ -27,7 +27,7 @@ $colors: (
   primary-dark: ghostwhite,
   secondary: #DD2B52,
   accent: #FF476A,
-  backbone: #3B3A39
+  purple: #9406A6
   // backbone is the primary for features off the content area of the page (ie header/footer)
 );
 
@@ -88,20 +88,27 @@ $grey: #3B3A39;
     background-color: map-get($colors, accent);
     color: white;
 }
-// label {
-//   font-weight: bold;
-//   margin: 1em 0 .3em 0;
-// }
-input[type="text"],
-input[type="search"],
-input[type="submit"] {
+label {
+  margin: 1em;
+}
+.nf-element {
   padding: 1%;
+  border-style: inset;
   @include border-radius(5px);
-  background-color: transparent;
   display: block;
 }
-input[type="search"] {
-
+input[type="button"]{
+  @extend .btn;
+}
+div.nf-error {
+  div.nf-field-label {
+    color: indianred;
+    font-variant: small-caps;
+  }
+  .nf-element{
+  border: 3px solid indianred;
+  border-style: inset;
+  }
 }
 // input[type="text"].greenisgo {
 //   border: 3px solid darkgreen;
@@ -115,7 +122,7 @@ input[type="search"] {
 .htwo-df {
   display: block;
   width: 100%;
-  font-size: 2.5em;
+  font-size: 3em;
   color:  #180E15;
   font-family: 'Rochester', cursive;
   margin: 5% 5% 2% 0;
@@ -127,39 +134,95 @@ input[type="search"] {
   color: map-get($colors, secondary);
   font-size: 2em;
   margin: 0;
-  // margin-right: 5%;
 }
 .hfour-df {
   font-size: 1.25em;
   font-weight: 400;
   margin-top: 0;
 }
+//Image Styles
+img {
+  margin: 3%;
+  max-width: 100%;
+  height: auto;
+  @include clearfix();
+  &.aligncenter {
+  display: block;
+  margin: 3% auto;
+  }
+  &.alignleft {
+  float: left;
+  margin-left: 0;
+  }
+  &.alignnone {
+  max-width: 100%;
+  height: auto;
+  margin: 3% auto;
+  }
+  &.alignright {
+  float: right;
+  margin-right: 0;
+  }
+}
+.wp-caption {
+  @include clearfix();
+  max-width: 100%;
+  height: auto;
+  &.alignright {
+    float: right;
+    margin-right: 0;
+  }
+  img {
+    margin: 0;
+  }
+  img.aligncenter {
+    margin-bottom: 0;
+  }
+}
+.wp-caption.alignleft {
+  float: left;
+  margin: 3% 3% 0 0;
+}
+.wp-caption-text {
+    text-align: center;
+    color: darkgrey;
+    padding: 2%;
+    margin: 0 3% 3% 3%;
+    a {
+      text-decoration: none;
+      font-weight: bold;
+      color: map-get($colors, accent);
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+}
+//blockquote styles
 
-// Page Styles
+//Template Page Styles
 *,
 *:after,
 *:before {
   @include box-sizing(border-box);
 }
 body {
-  // background: -webkit-radial-gradient(center, ellipse cover, #4A3247 0%, #180E15 100%);
-  background: radial-gradient(#4A3247, #180E15);
+  background: linear-gradient( white, #D5CECE);
 }
-.header-bar {
+.header-image {
   width: 100%;
-  height: 475px;
+  height: auto;
+  overflow: hidden;
   margin: 0;
-  .custom-logo-link {
-    position: absolute;
-    padding: 2%;
 }
-  .header-image {
-    width: 100%;
-  }
+.custom-logo-link {
+  display: flex;
+  justify-content: center;
+  margin: 3% 0;
 }
 .wrapper {
-  @include clearfix();
-  position: relative;
+  // @include clearfix();
+  display: flex;
+  justify-content: flex-start;
   background: white;
   max-width: 960px;
   margin: 20% 5% 5% 5%;
@@ -176,6 +239,7 @@ section.permanent p {
   font-family: $font-Roch;
   font-size: 2em;
 }
+
 /*
  *==NAV STYLES
  */
@@ -183,7 +247,6 @@ section.permanent p {
    text-decoration: none;
  }
  nav {
-   top: 430px;
    display: flex;
    justify-content: space-around;
    vertical-align: inherit;
@@ -192,7 +255,6 @@ section.permanent p {
    z-index: 10;
   ul.menu  {
     display: inline-flex;
-    padding: 3% 0 0 0;
     li:first-of-type {
       margin-left: 0;
     }
@@ -207,18 +269,16 @@ section.permanent p {
      }
      a {
        text-decoration: none;
-       color: map-get($colors, primary-dark);
-       padding: 10% 10% 25% 10%;
+       color: dimgrey;
      }
    }
  }
- #menu-global-menu li.menu-item a:hover {
-   color: map-get($colors, secondary );
+ #menu-global-menu li.menu-item:hover {
+   color: pink;
  }
- #menu-global-menu li.current-menu-item a {
-       background: white;
-       color: black;
-     }
+#menu-global-menu li.current-menu-item {
+  color: pink;
+}
  #menu-utility-menu li.menu-item {
    font-size: 1em;
    margin: 0 10px;
@@ -229,20 +289,10 @@ section.permanent p {
      color: map-get($colors, backbone);
    }
  }
-
  #content {
   @include clearfix();
   width: 660px / 960px * 100%;
   float: left;
-  h2 {
-    background: url(images/pagetitle_divider.png)no-repeat;
-    background-position: bottom left;
-    height: 120px;
-  }
-  img {
-    max-width: 100%;
-    max-height: 100%;
-  }
 }
 .postmeta {
   margin: 2% 0;
@@ -252,26 +302,28 @@ section.permanent p {
 }
 .entry-content {
   padding-left: 2%;
+  a {
+    color: map-get($colors, accent);
+    font-weight: bold;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
 }
  //*==POST STYLES (blog)
  .format-standard.status-publish.hentry {
    display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   align-items: baseline;
    background: linear-gradient(#FF476A, #732030);
    position: relative;
    width: 100%;
    height: 300px;
    overflow: hidden;
    margin-bottom: 5%;
-   a img {
-     width: 100%;
-     height: 100%;
-     max-width: 65%;
-   }
  }
  .format-standard.status-publish.hentry div.info-wrap  {
-   display: flex;
-   flex-direction: column;
-   justify-content: space-between;
    padding: 3%;
    width: 45%;
    color: ghostwhite;
@@ -281,35 +333,109 @@ section.permanent p {
        color: ghostwhite;
      }
    }
-   div.entry-content {
-   }
  }
-
+//sticky post!
+article.post.status-publish.sticky {
+  background: linear-gradient(khaki, lemonchiffon);
+  display: block;
+  max-width: 85%;
+  height: auto;
+  margin: 5% auto;
+  padding: 3%;
+  box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.25);
+  div.info-wrap {
+    width: 100%;
+    color: black;
+    h3 {
+      padding-bottom: 3%;
+    }
+  }
+}
 /*
  *==WIDGET AREA STYLES
  */
+ //home blurb styles
+section.widget {
+  margin-bottom: 5%;
+  h3.widgettitle {
+    text-align: left;
+    margin-bottom: 3%;
+  }
+  ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+}
+section.widget_calendar_upcoming {
+  padding: 0;
+  background-color: transparent;
+  h3.widgettitle {
+    font-family: $font-Roch;
+    color: #F14203;
+  }
+  li {
+    width: 100%;
+    padding: 1%;
+    background-color: lightgrey;
+    font-weight: bold;
+    li {
+      font-weight: normal;
+    }
+  }
+}
+section.widget.bwp_gallery {
+  padding: 0;
+  background-color: transparent;
+  h3.widgettitle {
+    color: #F14203;
+  }
+}
+section.widget_recent_entries {
+  h3.widgettitle {
+    font-family: $font-Roch;
+    color: #F14203;
+  }
+  li {
+    text-align: center;
+    margin: 1%;
+    width: 33%;
+    height: 150px;
+    background-color: lightgrey;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  a {
+    text-decoration: none;
+    color: black;
+    font-size: 1.5em;
+    font-weight: bold;
+  }
+}
+//sidebar blog
 #sidebar {
   @include clearfix();
   margin-top: 3%;
-  position: absolute;
-  top: 35px;
-  left: 730px;
-  background: $grey;
   color: black;
   padding: 2%;
   width: 300px / 960px * 100%;
-}
-.widget {
+  .widget {
   max-width: 100%;
-  margin: 3%;
-  padding: 2%;
-  background-color: white;
+  margin: 5%;
+  padding: 7%;
+  background-color: coral;
   @include border-radius(2px);
  }
+}
  .widgettitle {
    text-align: center;
-   color: map-get($colors, accent);
+   font-family: $font-Roch;
+   font-variant: normal;
+   color: ghostwhite;
  }
+
 table#wp-calendar {
   background-color: white;
   width: 100%;
@@ -369,6 +495,7 @@ div.pagination {
   max-width: 100%;
   display: flex;
   justify-content: space-between;
+  margin: 3% 0;
   a {
     color: black;
     margin: 2%;

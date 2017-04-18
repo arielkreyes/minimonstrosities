@@ -16,11 +16,6 @@ function monster23_login_style(){
   $style_url  = plugins_url('css/login.css',  __FILE__);
   //put zis on ze page // handle, url
   wp_enqueue_style( 'login_css', $style_url );
-  //attach jquery
-  wp_enqueue_script('jquery');
-  //attach custom script
-	$script_url = plugins_url( 'js/split_style.js', __FILE__ );
-	wp_enqueue_script( 'split_style_js', $script_url );
 }
 add_action('login_enqueue_scripts', 'monster23_login_style');
 
@@ -74,6 +69,13 @@ function monster23_register_form(){
   <input type="text" name="last_name" id="last_name" class="input" value="<?php echo esc_attr( wp_unslash( $last_name ) ); ?>" size="25" /></label>
   </p>
   <?php
+  //password field
+  $user_pass = ( ! empty( $_POST['user_pass'])) ? trim( $_POST['user_pass']) : '';
+  ?>
+  <label for="user_pass"><?php _e( 'Create Password', 'mydomain' ) ?><br />
+  <input type="text" name="user_pass" id="user_pass" class="input" value="<?php echo esc_attr( wp_unslash( $user_pass ) ); ?>" size="25" /></label>
+  </p>
+  <?php
 }//end of monster23_register_form
 //2.Add Validation. All fields are required.
 add_filter('registration_errors', 'monster23_registration_errors', 10, 3);
@@ -88,6 +90,11 @@ function monster23_registration_errors($errors, $sanitized_user_login, $user_ema
     $errors->add('last_name_error', __('<strong>ERROR</strong> : You Must Include A Last Name.', 'mydomain'));
   }
   return $errors;
+  //password field
+  if( empty($_POST['user_pass']) || ! empty($_POST['user_pass']) && trim($_POST['user_pass']) == ''){
+    $errors->add('user_pass_error', __('<strong>ERROR</strong> : You Must Create A Password.', 'mydomain'));
+  }
+  return $errors;
 }//end of mosnter23_registration_errors
 //3.Save the extra Registration User Meta.
 add_action('user_register', 'monster23_user_register');
@@ -97,6 +104,9 @@ function monster23_user_register($user_id){
   }
   if( ! empty($_POST['last_name'])){
     update_user_meta($user_id,'last_name', trim($_POST['last_name']));
+  }
+  if( ! empty($_POST['user_pass'])){
+    update_user_meta($user_id,'user_pass', trim($_POST['user_pass']));
   }
 }//end of mosnter23_user_register
 

@@ -4,7 +4,7 @@ Theme URI: http://wordpress.org/
 Description: Feminine & Cute Theme.
 Author: Ariel Reyes
 Version: 1.0
-Tags: pink, white, grey, two-columns, fixed-width, custom-header, custom-background, threaded-comments, sticky-post, translation-ready, microformats, rtl-language-support, editor-style, custom-menu (optional)
+Tags: two-columns, custom-header, custom-background, threaded-comments, sticky-post, translation-ready, microformats, rtl-language-support, editor-style, custom-menu (optional)
 License: GPLv3L
 License URI:
 General comments (optional).
@@ -61,7 +61,7 @@ table {
 /*
  *==EXTENDS
  */
-.btn, div.comment-metadata span.edit-link a.comment-edit-link {
+.btn, input[type="button"], div.comment-metadata span.edit-link a.comment-edit-link {
   display: block;
   width: 100px;
   text-align: center;
@@ -77,7 +77,7 @@ table {
   -ms-border-radius: 5px;
   border-radius: 5px; }
 
-.btn:hover, div.comment-metadata span.edit-link a.comment-edit-link:hover {
+.btn:hover, input[type="button"]:hover, div.comment-metadata span.edit-link a.comment-edit-link:hover {
   border: 3px solid #FF476A;
   border-bottom: 5px solid #FF476A;
   -webkit-border-radius: 5px;
@@ -87,21 +87,29 @@ table {
   background-color: #FF476A;
   color: white; }
 
-input[type="text"],
-input[type="search"],
-input[type="submit"] {
+label {
+  margin: 1em; }
+
+.nf-element {
   padding: 1%;
+  border-style: inset;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   -ms-border-radius: 5px;
   border-radius: 5px;
-  background-color: transparent;
   display: block; }
+
+div.nf-error div.nf-field-label {
+  color: indianred;
+  font-variant: small-caps; }
+div.nf-error .nf-element {
+  border: 3px solid indianred;
+  border-style: inset; }
 
 .htwo-df, h2 {
   display: block;
   width: 100%;
-  font-size: 2.5em;
+  font-size: 3em;
   color: #180E15;
   font-family: 'Rochester', cursive;
   margin: 5% 5% 2% 0;
@@ -119,6 +127,61 @@ input[type="submit"] {
   font-weight: 400;
   margin-top: 0; }
 
+img {
+  margin: 3%;
+  max-width: 100%;
+  height: auto; }
+  img:before, img:after {
+    content: "";
+    display: table; }
+  img:after {
+    clear: both; }
+  img.aligncenter {
+    display: block;
+    margin: 3% auto; }
+  img.alignleft {
+    float: left;
+    margin-left: 0; }
+  img.alignnone {
+    max-width: 100%;
+    height: auto;
+    margin: 3% auto; }
+  img.alignright {
+    float: right;
+    margin-right: 0; }
+
+.wp-caption {
+  max-width: 100%;
+  height: auto; }
+  .wp-caption:before, .wp-caption:after {
+    content: "";
+    display: table; }
+  .wp-caption:after {
+    clear: both; }
+  .wp-caption.alignright {
+    float: right;
+    margin-right: 0; }
+  .wp-caption img {
+    margin: 0; }
+  .wp-caption img.aligncenter {
+    margin-bottom: 0; }
+
+.wp-caption.alignleft {
+  float: left;
+  margin: 3% 3% 0 0; }
+
+.wp-caption-text {
+  text-align: center;
+  color: darkgrey;
+  padding: 2%;
+  margin: 0 3% 3% 3%; }
+  .wp-caption-text a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #FF476A; }
+  .wp-caption-text a:hover {
+    text-decoration: underline; }
+
 *,
 *:after,
 *:before {
@@ -127,20 +190,22 @@ input[type="submit"] {
   box-sizing: border-box; }
 
 body {
-  background: radial-gradient(#4A3247, #180E15); }
+  background: linear-gradient(white, #D5CECE); }
 
-.header-bar {
+.header-image {
   width: 100%;
-  height: 475px;
+  height: auto;
+  overflow: hidden;
   margin: 0; }
-  .header-bar .custom-logo-link {
-    position: absolute;
-    padding: 2%; }
-  .header-bar .header-image {
-    width: 100%; }
+
+.custom-logo-link {
+  display: flex;
+  justify-content: center;
+  margin: 3% 0; }
 
 .wrapper {
-  position: relative;
+  display: flex;
+  justify-content: flex-start;
   background: white;
   max-width: 960px;
   margin: 20% 5% 5% 5%;
@@ -148,11 +213,6 @@ body {
   font-family: "Dosis", sans-serif;
   padding: 1%;
   margin: 0 auto; }
-  .wrapper:before, .wrapper:after {
-    content: "";
-    display: table; }
-  .wrapper:after {
-    clear: both; }
 
 article:before, article:after {
   content: "";
@@ -172,7 +232,6 @@ a {
   text-decoration: none; }
 
 nav {
-  top: 430px;
   display: flex;
   justify-content: space-around;
   vertical-align: inherit;
@@ -181,8 +240,7 @@ nav {
   max-width: 100%;
   z-index: 10; }
   nav ul.menu {
-    display: inline-flex;
-    padding: 3% 0 0 0; }
+    display: inline-flex; }
     nav ul.menu li:first-of-type {
       margin-left: 0; }
     nav ul.menu li {
@@ -194,23 +252,19 @@ nav {
       margin-right: 0; }
     nav ul.menu a {
       text-decoration: none;
-      color: ghostwhite;
-      padding: 10% 10% 25% 10%; }
+      color: dimgrey; }
 
-#menu-global-menu li.menu-item a:hover {
-  color: #DD2B52; }
+#menu-global-menu li.menu-item:hover {
+  color: pink; }
 
-#menu-global-menu li.current-menu-item a {
-  background: white;
-  color: black; }
+#menu-global-menu li.current-menu-item {
+  color: pink; }
 
 #menu-utility-menu li.menu-item {
   font-size: 1em;
   margin: 0 10px; }
   #menu-utility-menu li.menu-item a {
     color: ghostwhite; }
-  #menu-utility-menu li.menu-item a:hover {
-    color: #3B3A39; }
 
 #content {
   width: 68.75%;
@@ -220,13 +274,6 @@ nav {
     display: table; }
   #content:after {
     clear: both; }
-  #content h2 {
-    background: url(images/pagetitle_divider.png) no-repeat;
-    background-position: bottom left;
-    height: 120px; }
-  #content img {
-    max-width: 100%;
-    max-height: 100%; }
 
 .postmeta {
   margin: 2% 0;
@@ -239,24 +286,25 @@ nav {
 
 .entry-content {
   padding-left: 2%; }
+  .entry-content a {
+    color: #FF476A;
+    font-weight: bold; }
+  .entry-content a:hover {
+    text-decoration: underline; }
 
 .format-standard.status-publish.hentry {
   display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: baseline;
   background: linear-gradient(#FF476A, #732030);
   position: relative;
   width: 100%;
   height: 300px;
   overflow: hidden;
   margin-bottom: 5%; }
-  .format-standard.status-publish.hentry a img {
-    width: 100%;
-    height: 100%;
-    max-width: 65%; }
 
 .format-standard.status-publish.hentry div.info-wrap {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
   padding: 3%;
   width: 45%;
   color: ghostwhite; }
@@ -265,15 +313,74 @@ nav {
     .format-standard.status-publish.hentry div.info-wrap h3.entry-title a {
       color: ghostwhite; }
 
+article.post.status-publish.sticky {
+  background: linear-gradient(khaki, lemonchiffon);
+  display: block;
+  max-width: 85%;
+  height: auto;
+  margin: 5% auto;
+  padding: 3%;
+  box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.25); }
+  article.post.status-publish.sticky div.info-wrap {
+    width: 100%;
+    color: black; }
+    article.post.status-publish.sticky div.info-wrap h3 {
+      padding-bottom: 3%; }
+
 /*
  *==WIDGET AREA STYLES
  */
+section.widget {
+  margin-bottom: 5%; }
+  section.widget h3.widgettitle {
+    text-align: left;
+    margin-bottom: 3%; }
+  section.widget ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; }
+
+section.widget_calendar_upcoming {
+  padding: 0;
+  background-color: transparent; }
+  section.widget_calendar_upcoming h3.widgettitle {
+    font-family: "Rochester", cursive;
+    color: #F14203; }
+  section.widget_calendar_upcoming li {
+    width: 100%;
+    padding: 1%;
+    background-color: lightgrey;
+    font-weight: bold; }
+    section.widget_calendar_upcoming li li {
+      font-weight: normal; }
+
+section.widget.bwp_gallery {
+  padding: 0;
+  background-color: transparent; }
+  section.widget.bwp_gallery h3.widgettitle {
+    color: #F14203; }
+
+section.widget_recent_entries h3.widgettitle {
+  font-family: "Rochester", cursive;
+  color: #F14203; }
+section.widget_recent_entries li {
+  text-align: center;
+  margin: 1%;
+  width: 33%;
+  height: 150px;
+  background-color: lightgrey;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+section.widget_recent_entries a {
+  text-decoration: none;
+  color: black;
+  font-size: 1.5em;
+  font-weight: bold; }
+
 #sidebar {
   margin-top: 3%;
-  position: absolute;
-  top: 35px;
-  left: 730px;
-  background: #3B3A39;
   color: black;
   padding: 2%;
   width: 31.25%; }
@@ -282,20 +389,21 @@ nav {
     display: table; }
   #sidebar:after {
     clear: both; }
-
-.widget {
-  max-width: 100%;
-  margin: 3%;
-  padding: 2%;
-  background-color: white;
-  -webkit-border-radius: 2px;
-  -moz-border-radius: 2px;
-  -ms-border-radius: 2px;
-  border-radius: 2px; }
+  #sidebar .widget {
+    max-width: 100%;
+    margin: 5%;
+    padding: 7%;
+    background-color: coral;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    border-radius: 2px; }
 
 .widgettitle {
   text-align: center;
-  color: #FF476A; }
+  font-family: "Rochester", cursive;
+  font-variant: normal;
+  color: ghostwhite; }
 
 table#wp-calendar {
   background-color: white;
@@ -303,14 +411,12 @@ table#wp-calendar {
   text-align: center; }
   table#wp-calendar caption {
     font-size: 1.15em;
-    font-weight: bold;
-    color: #3B3A39; }
+    font-weight: bold; }
   table#wp-calendar a {
     color: black;
     text-decoration: none; }
   table#wp-calendar td#today {
-    font-weight: bold;
-    color: #3B3A39; }
+    font-weight: bold; }
   table#wp-calendar td#prev {
     padding: 1%;
     border: 2px solid #FF476A; }
@@ -344,7 +450,8 @@ h1 {
 div.pagination {
   max-width: 100%;
   display: flex;
-  justify-content: space-between; }
+  justify-content: space-between;
+  margin: 3% 0; }
   div.pagination a {
     color: black;
     margin: 2%; }

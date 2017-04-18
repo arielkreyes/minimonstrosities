@@ -9,10 +9,9 @@
   ?>
 
       <article <?php post_class(); ?>>
-        <a href="http://placehold.it"><img src="http://placehold.it/350x300"></a>
+        <a href="<?php the_permalink(); ?>">
         <div class="info-wrap">
-          <h3 class="entry-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-
+          <h3 class="entry-title"><?php the_title(); ?></h3>
           <div class="entry-content">
             <?php if(is_singular()){
               //single post, page, attachment, etc
@@ -26,13 +25,15 @@
             }else{
               the_excerpt();
             }//end of else  ?>
-        </div>
-          <div class="postmeta">
-            <span class="author">by: <?php the_author(); ?> </span>
-            <span class="date"><?php the_date(); ?></span>
-            <span class="num-comments"><?php comments_number(); ?> </span>
           </div>
-        </div>
+            <div class="postmeta">
+              <span class="author">by: <?php the_author(); ?> </span>
+              <span class="date"><?php the_date(); ?></span>
+              <span class="num-comments"><?php comments_number(); ?> </span>
+              <span class="title-tag"><?php get_the_tags(); ?></span>
+            </div>
+          </div>
+        </a>
       </article>
         <!-- end .postmeta -->
       <!-- End of ze Post -->

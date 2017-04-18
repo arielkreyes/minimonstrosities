@@ -114,7 +114,7 @@ add_action( 'init', 'monster23_menus');
      'after_widget' =>  '</section>',
    ));
    register_sidebar( array(
-     'name' =>  'Home Blurb Sidebar',
+     'name' =>  'Home Blurb Area',
      'id' =>  'blurbs-sidebar',
      'description'  => 'Appears on the Home Page only, showing the users the most recent uploads and gallery imports. Max three at a time!',
      'before_widget'  =>  '<section id="%S1s" class="widget %2$s">',
