@@ -398,6 +398,9 @@ section.widget_recent_entries a {
     -moz-border-radius: 2px;
     -ms-border-radius: 2px;
     border-radius: 2px; }
+  #sidebar a {
+    text-decoration: none;
+    color: black; }
 
 .widgettitle {
   text-align: center;
@@ -429,6 +432,10 @@ h1 {
 
 #content .screen-reader-text {
   display: none; }
+
+h5 {
+  font-weight: bold;
+  color: black; }
 
 /*
  *==GALLERY STYLES
